@@ -1,0 +1,16 @@
+{
+  "name": "poduzetnici.hr",
+  "version": "1.0.0",
+  "description": "A web platform designed to connect entrepreneurs in Croatia",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["entrepreneurs", "croatia", "business", "networking"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

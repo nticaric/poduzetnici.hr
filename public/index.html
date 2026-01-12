@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poduzetnici.hr - Povezujemo poduzetnike u Hrvatskoj</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🚀 Poduzetnici.hr</h1>
+            <p class="tagline">Središnja platforma za povezivanje poduzetnika u Hrvatskoj</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('entrepreneurs')">Poduzetnici</button>
+            <button class="tab-button" onclick="showTab('services')">Usluge</button>
+            <button class="tab-button" onclick="showTab('resources')">Resursi</button>
+        </div>
+
+        <!-- Entrepreneurs Tab -->
+        <div id="entrepreneurs-tab" class="tab-content active">
+            <h2>Pronađi poslovnog partnera</h2>
+            
+            <div class="search-box">
+                <input type="text" id="search-entrepreneurs" placeholder="Pretraži poduzetnike po imenu, djelatnosti, opisu ili lokaciji...">
+                <button onclick="searchEntrepreneurs()">Traži</button>
+            </div>
+
+            <div class="action-section">
+                <button class="btn-primary" onclick="showAddEntrepreneurForm()">+ Dodaj svoj profil</button>
+            </div>
+
+            <div id="add-entrepreneur-form" class="form-container" style="display: none;">
+                <h3>Dodaj svoj profil</h3>
+                <form onsubmit="addEntrepreneur(event)">
+                    <input type="text" id="entrepreneur-name" placeholder="Ime i prezime" required>
+                    <input type="email" id="entrepreneur-email" placeholder="Email" required>
+                    <input type="text" id="entrepreneur-business" placeholder="Djelatnost" required>
+                    <input type="text" id="entrepreneur-location" placeholder="Lokacija (grad)" required>
+                    <textarea id="entrepreneur-description" placeholder="Opis vašeg poslovanja i što tražite" required></textarea>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-primary">Spremi</button>
+                        <button type="button" onclick="hideAddEntrepreneurForm()">Odustani</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="entrepreneurs-list" class="list-container"></div>
+        </div>
+
+        <!-- Services Tab -->
+        <div id="services-tab" class="tab-content">
+            <h2>Ponuda usluga</h2>
+            
+            <div class="action-section">
+                <button class="btn-primary" onclick="showAddServiceForm()">+ Ponudi uslugu</button>
+            </div>
+
+            <div id="add-service-form" class="form-container" style="display: none;">
+                <h3>Ponudi uslugu</h3>
+                <form onsubmit="addService(event)">
+                    <input type="text" id="service-title" placeholder="Naziv usluge" required>
+                    <input type="text" id="service-provider" placeholder="Ime pružatelja usluge" required>
+                    <input type="text" id="service-category" placeholder="Kategorija (npr. marketing, IT, pravno)" required>
+                    <input type="text" id="service-contact" placeholder="Kontakt (email ili telefon)" required>
+                    <textarea id="service-description" placeholder="Opis usluge" required></textarea>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-primary">Spremi</button>
+                        <button type="button" onclick="hideAddServiceForm()">Odustani</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="services-list" class="list-container"></div>
+        </div>
+
+        <!-- Resources Tab -->
+        <div id="resources-tab" class="tab-content">
+            <h2>Resursi za poduzetnike</h2>
+            
+            <div class="action-section">
+                <button class="btn-primary" onclick="showAddResourceForm()">+ Dodaj resurs</button>
+            </div>
+
+            <div id="add-resource-form" class="form-container" style="display: none;">
+                <h3>Dodaj resurs</h3>
+                <form onsubmit="addResource(event)">
+                    <input type="text" id="resource-title" placeholder="Naziv resursa" required>
+                    <input type="text" id="resource-type" placeholder="Tip (npr. članak, video, alat)" required>
+                    <input type="url" id="resource-url" placeholder="URL (opcionalno)">
+                    <textarea id="resource-description" placeholder="Opis resursa" required></textarea>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-primary">Spremi</button>
+                        <button type="button" onclick="hideAddResourceForm()">Odustani</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="resources-list" class="list-container"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Poduzetnici.hr - Platforma za povezivanje poduzetnika u Hrvatskoj</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
