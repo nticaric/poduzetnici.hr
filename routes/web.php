@@ -27,6 +27,14 @@ Route::get('/alati/hub3-generator', function () {
     return view('tools.hub3-generator');
 })->name('tools.hub3-generator');
 
+Route::get('/alati/hub3-batch-generator', function () {
+    return view('tools.hub3-batch-generator');
+})->name('tools.hub3-batch-generator');
+
+Route::get('/alati/sepa-pain001-generator', function () {
+    return view('tools.sepa-pain001-generator');
+})->name('tools.sepa-pain001-generator');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

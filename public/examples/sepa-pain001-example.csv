@@ -1,0 +1,13 @@
+creditor_name,creditor_iban,creditor_bic,creditor_address,creditor_city,creditor_country,amount,currency,end_to_end_id,description
+Tech Supplies d.o.o.,HR1111222233334444555,ZABAHR2X,Industrijska 55,10000 Zagreb,HR,2450.50,EUR,INV-2024-0123,Racun br. 2024-0123
+Office Pro j.d.o.o.,HR2222333344445555666,PBZGHR2X,Gospodarska 18,21000 Split,HR,890.00,EUR,INV-2024-0124,Uredski materijal sijecanj
+IT Solutions d.o.o.,HR3333444455556666777,RABORHR2,Digitalna 99,10000 Zagreb,HR,3200.00,EUR,INV-2024-0125,IT usluge i odrzavanje
+Logistika Plus d.o.o.,HR4444555566667777888,EABORHR2,Transportna 12,31000 Osijek,HR,1560.75,EUR,INV-2024-0126,Dostava robe - sijecanj
+Marketing Agency d.o.o.,HR5555666677778888999,ZABAHR2X,Marketinska 8,10000 Zagreb,HR,4500.00,EUR,INV-2024-0127,Marketing usluge Q1 2024
+Consulting Partners d.o.o.,HR6666777788889999000,PBZGHR2X,Savjetnicka 22,51000 Rijeka,HR,2800.00,EUR,INV-2024-0128,Konzultantske usluge
+Software House d.o.o.,HR7777888899990000111,RABORHR2,Softverska 15,10000 Zagreb,HR,8500.00,EUR,INV-2024-0129,Razvoj softvera - faza 2
+Cleaning Services j.d.o.o.,HR8888999900001111222,EABORHR2,Cistacka 3,21000 Split,HR,650.00,EUR,INV-2024-0130,Usluge ciscenja sijecanj
+Security Plus d.o.o.,HR9999000011112222333,ZABAHR2X,Sigurnosna 7,10000 Zagreb,HR,1200.00,EUR,INV-2024-0131,Sigurnosne usluge
+Catering Deluxe d.o.o.,HR0000111122223333444,PBZGHR2X,Ugostiteljska 11,10000 Zagreb,HR,3750.00,EUR,INV-2024-0132,Catering za dogadaj
+Deutsche Supplier GmbH,DE89370400440532013000,COBADEFFXXX,Hauptstrasse 123,80331 Munchen,DE,5600.00,EUR,INV-2024-0133,IT oprema - uvoz
+Austrian Services GmbH,AT611904300234573201,BKAUATWW,Ringstrasse 45,1010 Wien,AT,2100.00,EUR,INV-2024-0134,Konzultantske usluge

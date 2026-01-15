@@ -5,7 +5,7 @@
             "args": [
                 "exec",
                 "-i",
-                "trainerhub.test",
+                "poduzetnici.test",
                 "php",
                 "artisan",
                 "boost:mcp"

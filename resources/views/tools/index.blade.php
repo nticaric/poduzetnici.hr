@@ -37,7 +37,7 @@
                     <div class="text-sm text-gray-500 mt-1">Lokalna obrada</div>
                 </div>
                 <div>
-                    <div class="text-2xl font-bold text-white font-display">HTML/XML</div>
+                    <div class="text-2xl font-bold text-white font-display">CSV/XML</div>
                     <div class="text-sm text-gray-500 mt-1">Podržani formati</div>
                 </div>
                  <div>
@@ -97,6 +97,74 @@
                      </div>
                 </a>
 
+                <!-- HUB3 Batch Generator Card -->
+                <a href="{{ route('tools.hub3-batch-generator') }}" class="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 overflow-hidden">
+                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-emerald-600"></div>
+
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
+                           <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                           </svg>
+                        </div>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Besplatno</span>
+                     </div>
+
+                     <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-green-600 transition-colors">HUB3 Batch Generator</h3>
+                     <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
+                         Generirajte HUB3 barkodove iz CSV/Excel datoteka. Idealno za isplatu plaća, dobavljače i povrate.
+                     </p>
+
+                     <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">CSV/Excel</span>
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Plaće</span>
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Batch</span>
+                     </div>
+
+                     <div class="mt-auto">
+                        <span class="w-full flex items-center justify-center gap-2 bg-white border-2 border-green-100 text-green-700 font-semibold py-3 px-4 rounded-xl group-hover:bg-green-600 group-hover:border-green-600 group-hover:text-white transition-all">
+                            Pokreni generator
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
+                     </div>
+                </a>
+
+                <!-- SEPA pain.001 Generator Card -->
+                <a href="{{ route('tools.sepa-pain001-generator') }}" class="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 overflow-hidden">
+                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-indigo-600"></div>
+
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                           <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                           </svg>
+                        </div>
+                        <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Besplatno</span>
+                     </div>
+
+                     <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-blue-600 transition-colors">SEPA pain.001</h3>
+                     <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
+                         Generirajte SEPA Credit Transfer XML za grupna plaćanja putem e-bankarstva.
+                     </p>
+
+                     <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">CSV/Excel</span>
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">ISO 20022</span>
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">E-Banking</span>
+                     </div>
+
+                     <div class="mt-auto">
+                        <span class="w-full flex items-center justify-center gap-2 bg-white border-2 border-blue-100 text-blue-700 font-semibold py-3 px-4 rounded-xl group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:text-white transition-all">
+                            Pokreni generator
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
+                     </div>
+                </a>
+
                 <!-- Upcoming Tool 1 -->
                 <div class="relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col h-full opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
                      <div class="flex items-start justify-between mb-6">
@@ -112,7 +180,7 @@
                      <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
                          Izračun neto i bruto plaće, troškova poslodavca i neoporezivih primitaka.
                      </p>
-                     
+
                      <div class="mt-auto">
                         <button disabled class="w-full flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 text-gray-400 font-semibold py-3 px-4 rounded-xl cursor-not-allowed">
                             U izradi...

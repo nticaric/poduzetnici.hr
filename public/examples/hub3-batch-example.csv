@@ -1,0 +1,15 @@
+recipient_name,recipient_address,recipient_city,iban,amount,currency,model,reference,purpose_code,description
+Ivan Horvat,Ilica 123,10000 Zagreb,HR1234567890123456789,1850.00,EUR,HR99,00-001-2024,SALA,Placa sijecanj 2024
+Ana Maric,Vukovarska 45,21000 Split,HR9876543210987654321,1650.00,EUR,HR99,00-002-2024,SALA,Placa sijecanj 2024
+Marko Kovacevic,Slavonska avenija 12,31000 Osijek,HR1122334455667788990,1750.00,EUR,HR99,00-003-2024,SALA,Placa sijecanj 2024
+Petra Babic,Korzo 8,51000 Rijeka,HR5544332211998877665,1550.00,EUR,HR99,00-004-2024,SALA,Placa sijecanj 2024
+Luka Novak,Trg bana Jelacica 1,10000 Zagreb,HR6677889900112233445,1950.00,EUR,HR99,00-005-2024,SALA,Placa sijecanj 2024
+Tech Supplies d.o.o.,Industrijska 55,10000 Zagreb,HR1111222233334444555,2450.50,EUR,HR00,2024-0123,SUPP,Racun br. 2024-0123
+Office Pro j.d.o.o.,Gospodarska 18,21000 Split,HR2222333344445555666,890.00,EUR,HR01,24-456-7,SUPP,Uredski materijal
+IT Solutions d.o.o.,Digitalna 99,10000 Zagreb,HR3333444455556666777,3200.00,EUR,HR00,INV-2024-089,SUPP,IT usluge sijecanj
+Logistika Plus d.o.o.,Transportna 12,31000 Osijek,HR4444555566667777888,1560.75,EUR,HR00,LOG-2024-015,SUPP,Dostava robe
+Mirna Juric,Zeleni trg 7,10000 Zagreb,HR7788990011223344556,125.00,EUR,HR99,,RCPT,Povrat preplacenog iznosa
+Josip Matic,Primorska 33,51000 Rijeka,HR8899001122334455667,89.50,EUR,HR99,,RCPT,Povrat kaucije
+Marina Simic,Dalmatinska 21,23000 Zadar,HR9900112233445566778,350.00,EUR,HR99,,RCPT,Povrat depozita
+Konzultant d.o.o.,Savska 100,10000 Zagreb,HR0011223344556677889,1500.00,EUR,HR00,KONS-2024-01,OTHR,Konzultantske usluge
+Petar Vidovic,Vukovarska 88,10000 Zagreb,HR5566778899001122334,200.00,EUR,HR99,BONUS-01,OTHR,Bonus za projekt
