@@ -18,6 +18,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Tools (Alati)
+Route::get('/alati', function () {
+    return view('tools.index');
+})->name('tools.index');
+
+Route::get('/alati/hub3-generator', function () {
+    return view('tools.hub3-generator');
+})->name('tools.hub3-generator');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

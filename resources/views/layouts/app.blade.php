@@ -28,6 +28,7 @@
                         <div class="hidden sm:ml-10 sm:flex sm:space-x-8">
                             <a href="{{ route('home') }}" class="text-white inline-flex items-center px-1 pt-1 text-sm font-medium border-b-2 {{ request()->routeIs('home') ? 'border-primary-500' : 'border-transparent text-gray-300 hover:text-white' }}">Naslovnica</a>
                             <a href="{{ route('ads.index') }}" class="text-gray-300 hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors {{ request()->routeIs('ads.*') ? 'text-white border-b-2 border-primary-500' : '' }}">Oglasi</a>
+                            <a href="{{ route('tools.index') }}" class="text-gray-300 hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors {{ request()->routeIs('tools.*') ? 'text-white border-b-2 border-primary-500' : '' }}">Alati</a>
                             <a href="#" class="text-gray-300 hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors">Kategorije</a>
                         </div>
                     </div>

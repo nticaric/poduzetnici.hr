@@ -1,0 +1,15 @@
+{
+    "mcpServers": {
+        "laravel-boost": {
+            "command": "docker",
+            "args": [
+                "exec",
+                "-i",
+                "trainerhub.test",
+                "php",
+                "artisan",
+                "boost:mcp"
+            ]
+        }
+    }
+}
