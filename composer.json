@@ -77,7 +77,7 @@
         ]
     },
     "extra": {
-        "releaseDate": "14.01.2026"
+        "releaseDate": "15.01.2026"
     },
     "config": {
         "optimize-autoloader": true,
@@ -90,5 +90,5 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
-    "version": "1.0.2"
+    "version": "1.0.3"
 }
