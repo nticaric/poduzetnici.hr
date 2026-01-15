@@ -11,7 +11,13 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\Auth\SocialAuthController;
+
 Route::middleware('guest')->group(function () {
+    Route::get('auth/{driver}', [SocialAuthController::class, 'redirect'])->name('social.redirect');
+    Route::get('auth/{driver}/callback', [SocialAuthController::class, 'callback'])->name('social.callback');
+
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('register');
 

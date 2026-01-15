@@ -27,6 +27,9 @@ class User extends Authenticatable
         'oib',
         'phone',
         'preferred_contact_method',
+        'google_id',
+        'facebook_id',
+        'avatar',
     ];
 
     /**
