@@ -1,0 +1,25 @@
+# Poduzetnici.hr
+
+> Oglasi i alati za hrvatske poduzetnike.
+
+## O nama
+Poduzetnici.hr je centralno mjesto za hrvatske poduzetnike. Naša misija je olakšati poslovanje kroz povezivanje (oglasi), edukaciju i korisne alate.
+
+## Mogućnosti
+
+### 1. Oglasi (Ads)
+Pregledajte i objavite oglase za:
+- Prodaju firmi i biznisa
+- Traženje investitora
+- Poslovna partnerstva
+- Opremu i usluge
+
+### 2. Alati (Tools)
+Besplatni alati za olakšavanje svakodnevnog poslovanja:
+- **HUB3 Generator**: Generiranje 2D barkodova za plaćanje
+- **Kalkulator Plaća** (Uskoro): Izračun neto/bruto plaća
+- **PDV Asistent** (Uskoro): Provjera i izračun PDV-a
+
+## Kontakt
+- Web: https://poduzetnici.hr
+- Email: info@poduzetnici.hr

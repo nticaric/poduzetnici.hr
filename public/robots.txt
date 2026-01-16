@@ -1,2 +1,5 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://poduzetnici.hr/sitemap.xml
+Allow: /llms.txt
