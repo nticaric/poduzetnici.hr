@@ -43,6 +43,10 @@ Route::get('/alati/kreditni-kalkulator', function () {
     return view('tools.kreditni-kalkulator');
 })->name('tools.kreditni-kalkulator');
 
+Route::get('/alati/bruto-neto-kalkulator', function () {
+    return view('tools.bruto-neto-kalkulator');
+})->name('tools.bruto-neto-kalkulator');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

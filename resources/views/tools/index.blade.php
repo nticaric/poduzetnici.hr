@@ -206,28 +206,39 @@
                      </div>
                 </a>
 
-                <!-- Upcoming Tool 1 -->
-                <div class="relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col h-full opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-400">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                            </svg>
+                <!-- Bruto Neto Kalkulator Card -->
+                <a href="{{ route('tools.bruto-neto-kalkulator') }}" class="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 overflow-hidden">
+                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-amber-600"></div>
+
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300">
+                           <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                           </svg>
                         </div>
-                        <span class="bg-gray-100 text-gray-500 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Uskoro</span>
-                    </div>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Besplatno</span>
+                     </div>
 
-                    <h3 class="text-2xl font-bold text-gray-800 mb-3">Kalkulator Plaća</h3>
-                    <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
-                        Izračun neto i bruto plaće, troškova poslodavca i neoporezivih primitaka.
-                    </p>
+                     <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-orange-600 transition-colors">Bruto Neto Kalkulator</h3>
+                     <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
+                         Izračunajte neto plaću iz bruto iznosa ili obrnuto. Uključuje doprinose, porez i osobni odbitak za 2025.
+                     </p>
 
-                    <div class="mt-auto">
-                        <button disabled class="w-full flex items-center justify-center gap-2 bg-gray-50 border border-gray-200 text-gray-400 font-semibold py-3 px-4 rounded-xl cursor-not-allowed">
-                            U izradi...
-                        </button>
-                    </div>
-                </div>
+                     <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Plaća</span>
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">MIO/Porez</span>
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">2025</span>
+                     </div>
+
+                     <div class="mt-auto">
+                        <span class="w-full flex items-center justify-center gap-2 bg-white border-2 border-orange-100 text-orange-700 font-semibold py-3 px-4 rounded-xl group-hover:bg-orange-600 group-hover:border-orange-600 group-hover:text-white transition-all">
+                            Izračunaj plaću
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
+                     </div>
+                </a>
 
                 <!-- Upcoming Tool 2 -->
                 <div class="relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col h-full opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
