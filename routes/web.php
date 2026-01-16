@@ -35,6 +35,10 @@ Route::get('/alati/sepa-pain001-generator', function () {
     return view('tools.sepa-pain001-generator');
 })->name('tools.sepa-pain001-generator');
 
+Route::get('/alati/kpd-preglednik', function () {
+    return view('tools.kpd-preglednik');
+})->name('tools.kpd-preglednik');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

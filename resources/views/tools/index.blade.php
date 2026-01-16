@@ -138,6 +138,40 @@
                      </div>
                 </a>
 
+                <!-- KPD Preglednik Card -->
+                <a href="{{ route('tools.kpd-preglednik') }}" class="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 overflow-hidden">
+                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-orange-600"></div>
+
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300">
+                           <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                           </svg>
+                        </div>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Besplatno</span>
+                     </div>
+
+                     <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-amber-600 transition-colors">KPD Preglednik</h3>
+                     <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
+                         Pretraživanje KPD 2025 šifri za eRačune i fiskalizaciju. Hijerarhijski prikaz svih 5.800+ kodova.
+                     </p>
+
+                     <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">eRačun</span>
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Fiskalizacija</span>
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">KPD 2025</span>
+                     </div>
+
+                     <div class="mt-auto">
+                        <span class="w-full flex items-center justify-center gap-2 bg-white border-2 border-amber-100 text-amber-700 font-semibold py-3 px-4 rounded-xl group-hover:bg-amber-600 group-hover:border-amber-600 group-hover:text-white transition-all">
+                            Pretraži šifre
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
+                     </div>
+                </a>
+
                 <!-- Upcoming Tool 1 -->
                 <div class="relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col h-full opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
                     <div class="flex items-start justify-between mb-6">
