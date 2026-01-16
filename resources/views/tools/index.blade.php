@@ -172,6 +172,40 @@
                      </div>
                 </a>
 
+                <!-- Kreditni Kalkulator Card -->
+                <a href="{{ route('tools.kreditni-kalkulator') }}" class="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 overflow-hidden">
+                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-cyan-600"></div>
+
+                     <div class="flex items-start justify-between mb-6">
+                        <div class="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
+                           <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                           </svg>
+                        </div>
+                        <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Besplatno</span>
+                     </div>
+
+                     <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-teal-600 transition-colors">Kreditni Kalkulator</h3>
+                     <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
+                         Izračunajte mjesečnu ratu, ukupne kamate i plan otplate za kredite i hipoteke.
+                     </p>
+
+                     <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Kredit</span>
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Hipoteka</span>
+                        <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Amortizacija</span>
+                     </div>
+
+                     <div class="mt-auto">
+                        <span class="w-full flex items-center justify-center gap-2 bg-white border-2 border-teal-100 text-teal-700 font-semibold py-3 px-4 rounded-xl group-hover:bg-teal-600 group-hover:border-teal-600 group-hover:text-white transition-all">
+                            Izračunaj ratu
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                            </svg>
+                        </span>
+                     </div>
+                </a>
+
                 <!-- Upcoming Tool 1 -->
                 <div class="relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm flex flex-col h-full opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
                     <div class="flex items-start justify-between mb-6">

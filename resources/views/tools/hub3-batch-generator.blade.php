@@ -119,6 +119,16 @@
             </div>
         </div>
 
+        <!-- Download Actions -->
+        <div id="download-actions" class="hidden mb-6 flex justify-end">
+            <button onclick="downloadAsPDF()" class="inline-flex items-center gap-2 text-sm font-medium  bg-green-600 hover:bg-green-700 px-4 py-2.5 rounded-xl shadow-sm transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                Preuzmi kao PDF
+            </button>
+        </div>
+
         <!-- Payment List -->
         <div id="payment-list" class="space-y-4"></div>
 
@@ -242,6 +252,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bwip-js@4.3.0/dist/bwip-js-min.js"></script>
     <!-- SheetJS for Excel parsing -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <!-- jsPDF for PDF generation -->
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 
     <script>
         // State
@@ -267,6 +279,7 @@
         const toastMessage = document.getElementById('toast-message');
         const typeFilter = document.getElementById('type-filter');
         const summaryCards = document.getElementById('summary-cards');
+        const downloadActions = document.getElementById('download-actions');
 
         // Event Listeners
         dropZone.addEventListener('click', () => fileInput.click());
@@ -538,6 +551,7 @@
                 counter.classList.add('hidden');
                 typeFilter.classList.add('hidden');
                 summaryCards.classList.add('hidden');
+                downloadActions.classList.add('hidden');
                 paymentList.innerHTML = '';
                 return;
             }
@@ -547,6 +561,8 @@
             typeFilter.classList.remove('hidden');
             summaryCards.classList.remove('hidden');
             summaryCards.classList.add('grid');
+            downloadActions.classList.remove('hidden');
+            downloadActions.classList.add('flex');
 
             // Update summary
             const summary = calculateSummary();
@@ -665,6 +681,234 @@
             navigator.clipboard.writeText(hub3Data).then(() => {
                 showToast('HUB3 podaci kopirani!');
             });
+        }
+
+        // Font loading for UTF-8 support (Croatian characters: ć, č, š, ž, đ)
+        let openSansFontsLoaded = false;
+        let openSansFontData = { regular: null, bold: null };
+
+        async function loadOpenSansFonts() {
+            if (openSansFontsLoaded) return openSansFontData;
+
+            try {
+                // Load Open Sans Regular and Bold from local files (includes Latin Extended)
+                const [regularResponse, boldResponse] = await Promise.all([
+                    fetch('/fonts/OpenSans-Regular.ttf'),
+                    fetch('/fonts/OpenSans-Bold.ttf')
+                ]);
+
+                const [regularBuffer, boldBuffer] = await Promise.all([
+                    regularResponse.arrayBuffer(),
+                    boldResponse.arrayBuffer()
+                ]);
+
+                // Convert ArrayBuffer to base64 using chunked approach
+                const arrayBufferToBase64 = (buffer) => {
+                    const bytes = new Uint8Array(buffer);
+                    const chunkSize = 0x8000; // 32KB chunks
+                    let binary = '';
+                    for (let i = 0; i < bytes.length; i += chunkSize) {
+                        const chunk = bytes.subarray(i, Math.min(i + chunkSize, bytes.length));
+                        binary += String.fromCharCode.apply(null, chunk);
+                    }
+                    return btoa(binary);
+                };
+
+                openSansFontData.regular = arrayBufferToBase64(regularBuffer);
+                openSansFontData.bold = arrayBufferToBase64(boldBuffer);
+                openSansFontsLoaded = true;
+                console.log('Open Sans fonts loaded successfully');
+                return openSansFontData;
+            } catch (e) {
+                console.error('Failed to load Open Sans fonts:', e);
+                return null;
+            }
+        }
+
+        // Download as PDF
+        async function downloadAsPDF() {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF('p', 'mm', 'a4');
+            const pageWidth = pdf.internal.pageSize.getWidth();
+            const pageHeight = pdf.internal.pageSize.getHeight();
+            const margin = 15;
+            const contentWidth = pageWidth - (margin * 2);
+
+            // Filter payments based on current filter
+            const filteredPayments = currentFilter === 'all'
+                ? payments
+                : payments.filter(p => p.purposeCode === currentFilter);
+
+            if (filteredPayments.length === 0) {
+                showToast('Nema uplata za preuzimanje', true);
+                return;
+            }
+
+            showToast('Učitavanje fonta...');
+
+            // Load and register Open Sans fonts for UTF-8 support
+            const fontData = await loadOpenSansFonts();
+            let useOpenSans = false;
+            if (fontData && fontData.regular && fontData.bold) {
+                pdf.addFileToVFS('OpenSans-Regular.ttf', fontData.regular);
+                pdf.addFileToVFS('OpenSans-Bold.ttf', fontData.bold);
+                pdf.addFont('OpenSans-Regular.ttf', 'OpenSans', 'normal');
+                pdf.addFont('OpenSans-Bold.ttf', 'OpenSans', 'bold');
+                useOpenSans = true;
+                console.log('Open Sans registered with jsPDF');
+            }
+
+            // Helper to set font
+            const setFont = (style) => {
+                if (useOpenSans) {
+                    pdf.setFont('OpenSans', style);
+                } else {
+                    pdf.setFont('helvetica', style);
+                }
+            };
+
+            showToast('Generiranje PDF-a...');
+
+            // Title
+            pdf.setFontSize(18);
+            setFont('bold');
+            pdf.text('HUB3 Batch - Uplatnice', margin, 20);
+
+            pdf.setFontSize(10);
+            setFont('normal');
+            pdf.setTextColor(100);
+            const dateStr = new Date().toLocaleDateString('hr-HR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+            pdf.text(`Generirano: ${dateStr}`, margin, 27);
+            pdf.text(`Ukupno uplata: ${filteredPayments.length}`, margin, 32);
+
+            // Summary
+            const summary = calculateSummary();
+            pdf.text(`Ukupni iznos: ${formatCurrency(summary.total)}`, margin, 37);
+
+            let yPos = 50;
+
+            for (let i = 0; i < filteredPayments.length; i++) {
+                const payment = filteredPayments[i];
+
+                // Check if we need a new page (each payment needs ~80mm)
+                if (yPos > pageHeight - 90) {
+                    pdf.addPage();
+                    yPos = 20;
+                }
+
+                // Payment card background
+                pdf.setFillColor(248, 250, 252);
+                pdf.roundedRect(margin, yPos, contentWidth, 75, 3, 3, 'F');
+
+                // Green top border
+                pdf.setFillColor(34, 197, 94);
+                pdf.rect(margin, yPos, contentWidth, 2, 'F');
+
+                yPos += 8;
+
+                // Recipient name and purpose badge
+                pdf.setFontSize(12);
+                setFont('bold');
+                pdf.setTextColor(0);
+                pdf.text(payment.recipientName.substring(0, 40), margin + 5, yPos);
+
+                const purposeInfo = getPurposeInfo(payment.purposeCode);
+                const badgeX = margin + 5 + pdf.getTextWidth(payment.recipientName.substring(0, 40)) + 3;
+                pdf.setFontSize(8);
+                pdf.setTextColor(100);
+                pdf.text(`[${purposeInfo.label}]`, Math.min(badgeX, pageWidth - 40), yPos);
+
+                yPos += 5;
+
+                // Address
+                pdf.setFontSize(9);
+                setFont('normal');
+                pdf.setTextColor(100);
+                const address = `${payment.recipientAddress}${payment.recipientCity ? ', ' + payment.recipientCity : ''}`;
+                pdf.text(address.substring(0, 60), margin + 5, yPos);
+
+                yPos += 8;
+
+                // Payment details in two columns
+                const col1X = margin + 5;
+                const col2X = margin + 55;
+
+                pdf.setFontSize(8);
+                pdf.setTextColor(150);
+                pdf.text('IZNOS', col1X, yPos);
+                pdf.text('IBAN', col2X, yPos);
+
+                yPos += 4;
+                pdf.setFontSize(11);
+                pdf.setTextColor(34, 197, 94);
+                setFont('bold');
+                pdf.text(formatCurrency(payment.amount, payment.currency), col1X, yPos);
+
+                pdf.setTextColor(0);
+                pdf.setFontSize(9);
+                setFont('normal');
+                pdf.text(payment.iban, col2X, yPos);
+
+                yPos += 7;
+
+                pdf.setFontSize(8);
+                pdf.setTextColor(150);
+                pdf.text('MODEL', col1X, yPos);
+                pdf.text('POZIV NA BROJ', col2X, yPos);
+
+                yPos += 4;
+                pdf.setFontSize(9);
+                pdf.setTextColor(0);
+                pdf.text(payment.model, col1X, yPos);
+                pdf.text(payment.reference || '-', col2X, yPos);
+
+                // Description if exists
+                if (payment.description) {
+                    yPos += 6;
+                    pdf.setFontSize(8);
+                    pdf.setTextColor(150);
+                    pdf.text('OPIS PLAĆANJA', col1X, yPos);
+                    yPos += 4;
+                    pdf.setFontSize(9);
+                    pdf.setTextColor(0);
+                    pdf.text(payment.description.substring(0, 50), col1X, yPos);
+                }
+
+                // Barcode
+                const canvas = document.getElementById(`barcode-${payment.id}`);
+                if (canvas) {
+                    try {
+                        const imgData = canvas.toDataURL('image/png');
+                        const barcodeWidth = 50;
+                        const barcodeHeight = 20;
+                        const barcodeX = pageWidth - margin - barcodeWidth - 5;
+                        const barcodeY = yPos - 25;
+                        pdf.addImage(imgData, 'PNG', barcodeX, barcodeY, barcodeWidth, barcodeHeight);
+
+                        // Barcode label
+                        pdf.setFontSize(7);
+                        pdf.setTextColor(150);
+                        pdf.text('HUB3 BARKOD', barcodeX + barcodeWidth / 2, barcodeY + barcodeHeight + 4, { align: 'center' });
+                    } catch (e) {
+                        console.error('Error adding barcode to PDF:', e);
+                    }
+                }
+
+                // Move to next payment position
+                yPos += 25;
+
+                // Row number footer
+                pdf.setFontSize(7);
+                pdf.setTextColor(180);
+                pdf.text(`Redak #${payment.lineNumber}`, margin + 5, yPos - 3);
+
+                yPos += 10;
+            }
+
+            // Download
+            const fileName = `hub3-batch-${new Date().toISOString().slice(0, 10)}.pdf`;
+            pdf.save(fileName);
+            showToast(`PDF preuzet: ${fileName}`);
         }
 
         function showToast(message, isError = false) {

@@ -39,6 +39,10 @@ Route::get('/alati/kpd-preglednik', function () {
     return view('tools.kpd-preglednik');
 })->name('tools.kpd-preglednik');
 
+Route::get('/alati/kreditni-kalkulator', function () {
+    return view('tools.kreditni-kalkulator');
+})->name('tools.kreditni-kalkulator');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
