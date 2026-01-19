@@ -36,7 +36,7 @@
 
     <!-- Categories Cards (Floating) -->
     <div class="relative -mt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-        <div class="flex flex-wrap md:flex-nowrap justify-center gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             @foreach([
                 ['name' => 'Prodaja poslovanja', 'color' => 'text-blue-600', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />'],
                 ['name' => 'Partnerstva', 'color' => 'text-purple-600', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />'],
@@ -45,24 +45,24 @@
                 ['name' => 'Oglasni prostor', 'color' => 'text-pink-600', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />'],
                 ['name' => 'Pitanja i odgovori', 'color' => 'text-teal-600', 'icon' => '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />']
             ] as $cat)
-            <a href="{{ route('ads.index', ['category' => $cat['name']]) }}" class="flex-1 w-full bg-white border border-gray-100 p-6 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all group text-center block">
-                <div class="{{ $cat['color'] }} mb-3 group-hover:scale-110 transition-transform inline-block p-3 rounded-full bg-gray-50 group-hover:bg-white">
-                    <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $cat['icon'] !!}</svg>
+            <a href="{{ route('ads.index', ['category' => $cat['name']]) }}" class="bg-white border border-gray-100 p-4 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all group text-center block">
+                <div class="{{ $cat['color'] }} mb-2 sm:mb-3 group-hover:scale-110 transition-transform inline-block p-2 sm:p-3 rounded-full bg-gray-50 group-hover:bg-white">
+                    <svg class="w-6 h-6 sm:w-8 sm:h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $cat['icon'] !!}</svg>
                 </div>
-                <h3 class="text-dark-900 font-bold text-lg group-hover:text-primary-600 transition-colors">{{ $cat['name'] }}</h3>
+                <h3 class="text-dark-900 font-bold text-sm sm:text-lg group-hover:text-primary-600 transition-colors">{{ $cat['name'] }}</h3>
             </a>
             @endforeach
         </div>
     </div>
 
     <!-- Latest Ads -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div class="flex justify-between items-end mb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4 mb-8">
             <div>
-                <h2 class="text-3xl font-bold font-display text-dark-900">Najnovije prilike</h2>
-                <p class="text-gray-500 mt-2">Pregledajte najnovije oglase iz naše zajednice</p>
+                <h2 class="text-2xl sm:text-3xl font-bold font-display text-dark-900">Najnovije prilike</h2>
+                <p class="text-gray-500 mt-1 sm:mt-2 text-sm sm:text-base">Pregledajte najnovije oglase iz naše zajednice</p>
             </div>
-            <a href="{{ route('ads.index') }}" class="text-primary-600 font-semibold hover:text-primary-700 flex items-center">
+            <a href="{{ route('ads.index') }}" class="text-primary-600 font-semibold hover:text-primary-700 flex items-center text-sm sm:text-base">
                 Pogledaj sve <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
             </a>
         </div>
