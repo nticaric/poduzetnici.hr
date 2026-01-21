@@ -101,8 +101,10 @@ jobs:
     needs: build-and-push
     
     steps:
-      - name: Deploy to Digital Ocean App Platform
-        uses: digitalocean/app_action@v2
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
         with:
-          app_name: ${{ vars.DIGITALOCEAN_APP_NAME }}
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Deploy to Digital Ocean App Platform
+        run: doctl apps create-deployment ${{ vars.DIGITALOCEAN_APP_ID }} --force-rebuild
