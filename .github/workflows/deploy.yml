@@ -119,13 +119,19 @@ jobs:
   deploy:
     name: Deploy to Digital Ocean
     runs-on: ubuntu-latest
-    needs: push
+    needs: [build, push]
     
     steps:
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Update app to use new image version
+        run: |
+          doctl apps spec get ${{ vars.DIGITALOCEAN_APP_ID }} > app-spec.yaml
+          sed -i "s|tag:.*|tag: ${{ needs.build.outputs.version }}|g" app-spec.yaml
+          doctl apps update ${{ vars.DIGITALOCEAN_APP_ID }} --spec app-spec.yaml
 
       - name: Deploy to Digital Ocean App Platform
         run: doctl apps create-deployment ${{ vars.DIGITALOCEAN_APP_ID }} --force-rebuild
