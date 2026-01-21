@@ -1,9 +1,6 @@
 # Build stage
 FROM debian:trixie-slim AS builder
 
-
-
-# Install system dependencies
 # Install system dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
@@ -18,7 +15,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     php8.4-mbstring \
     php8.4-gd \
     php8.4-soap \
-    default-mysql-client && rm -rf /var/lib/apt/lists/*
+    default-mysql-client \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install Composer
 COPY --from=composer:2.9.2 /usr/bin/composer /usr/local/bin/composer
@@ -28,7 +26,8 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 WORKDIR /app
 COPY . /app
 
-RUN composer install --ignore-platform-reqs --no-dev \ 
+# Install PHP dependencies and cleanup
+RUN composer install --ignore-platform-reqs --no-dev \
     && rm -rf docker \
     && chmod -R 555 /app \
     && chmod -R 775 /app/storage /app/bootstrap/cache

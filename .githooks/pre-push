@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Pre-push hook to ensure Vite assets are built before pushing
+
+echo "Checking if Vite assets need to be built..."
+
+# Check if public/build exists and has the manifest
+if [ ! -f "public/build/manifest.json" ]; then
+    echo "❌ Vite manifest not found. Building assets..."
+    npm run build
+    
+    if [ $? -ne 0 ]; then
+        echo "❌ Asset build failed. Please fix the errors and try again."
+        exit 1
+    fi
+    
+    echo ""
+    echo "⚠️  Assets have been built. Please commit and push again:"
+    echo "   git add public/build && git commit -m 'build: compile frontend assets' && git push"
+    exit 1
+fi
+
+echo "✅ Vite assets are present."
+exit 0
