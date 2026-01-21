@@ -127,11 +127,13 @@ jobs:
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
 
+      - name: Install yq
+        run: |
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+
       - name: Update app to use new image version
         run: |
           doctl apps spec get ${{ vars.DIGITALOCEAN_APP_ID }} > app-spec.yaml
-          sed -i "s|tag:.*|tag: ${{ needs.build.outputs.version }}|g" app-spec.yaml
-          doctl apps update ${{ vars.DIGITALOCEAN_APP_ID }} --spec app-spec.yaml
-
-      - name: Deploy to Digital Ocean App Platform
-        run: doctl apps create-deployment ${{ vars.DIGITALOCEAN_APP_ID }} --force-rebuild
+          yq eval '.services[].image.tag = "${{ needs.build.outputs.version }}"' -i app-spec.yaml
+          doctl apps update ${{ vars.DIGITALOCEAN_APP_ID }} --spec app-spec.yaml --wait
