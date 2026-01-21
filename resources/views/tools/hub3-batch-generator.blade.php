@@ -9,10 +9,10 @@
             <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>
                     <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5" />
                     </pattern>
                 </defs>
-                <rect width="100" height="100" fill="url(#grid)"/>
+                <rect width="100" height="100" fill="url(#grid)" />
             </svg>
         </div>
         <div class="relative max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
@@ -20,7 +20,7 @@
                 <div>
                     <a href="{{ route('tools.index') }}" class="inline-flex items-center text-sm text-gray-400 hover:text-white mb-4 transition-colors">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                         </svg>
                         Natrag na alate
                     </a>
@@ -51,13 +51,13 @@
                 <div class="flex gap-2">
                     <a href="{{ asset('examples/hub3-batch-example.csv') }}" download class="inline-flex items-center gap-2 text-xs font-medium text-gray-600 hover:text-gray-900 border border-gray-200 hover:border-gray-300 bg-white px-3 py-1.5 rounded-lg transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
                         CSV
                     </a>
                     <a href="{{ asset('examples/hub3-batch-example.xlsx') }}" download class="inline-flex items-center gap-2 text-xs font-medium text-gray-600 hover:text-gray-900 border border-gray-200 hover:border-gray-300 bg-white px-3 py-1.5 rounded-lg transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
                         Excel
                     </a>
@@ -70,7 +70,7 @@
             <div id="drop-zone" class="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center cursor-pointer transition-all hover:border-green-500 hover:bg-green-50/30 group">
                 <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-100 group-hover:scale-110 transition-all">
                     <svg class="w-6 h-6 text-gray-400 group-hover:text-green-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                 </div>
                 <p class="text-gray-700 font-medium mb-1">Ispustite CSV/Excel datoteku ovdje</p>
@@ -127,7 +127,7 @@
         <div id="download-actions" class="hidden mb-6 flex justify-end">
             <button onclick="downloadAsPDF()" class="inline-flex items-center gap-2 text-sm font-medium  bg-green-600 hover:bg-green-700 px-4 py-2.5 rounded-xl shadow-sm transition-colors">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
                 Preuzmi kao PDF
             </button>
@@ -140,21 +140,21 @@
         <div id="empty-state" class="text-center py-16">
             <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
             </div>
             <p class="text-gray-400 mb-4">Učitajte CSV ili Excel datoteku za generiranje HUB3 barkodova</p>
             <div class="flex items-center justify-center gap-3">
                 <a href="{{ asset('examples/hub3-batch-example.csv') }}" download class="inline-flex items-center gap-2 text-sm font-medium text-green-600 hover:text-green-700">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
                     Primjer CSV
                 </a>
                 <span class="text-gray-300">|</span>
                 <a href="{{ asset('examples/hub3-batch-example.xlsx') }}" download class="inline-flex items-center gap-2 text-sm font-medium text-green-600 hover:text-green-700">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
                     Primjer Excel
                 </a>
@@ -165,7 +165,7 @@
         <div class="mt-8 bg-gray-50 border border-gray-200 rounded-xl p-6">
             <h3 class="text-sm font-bold text-dark-900 mb-4 flex items-center gap-2">
                 <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Format CSV datoteke
             </h3>
@@ -238,7 +238,7 @@
         <div class="mt-6 bg-green-50 border border-green-100 rounded-xl p-4 flex gap-4">
             <div class="flex-shrink-0">
                 <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
             </div>
             <p class="text-sm text-gray-600">
@@ -301,7 +301,11 @@
         dropZone.addEventListener('drop', (e) => {
             e.preventDefault();
             dropZone.classList.remove('border-green-500', 'bg-green-50/50');
-            handleFiles({ target: { files: e.dataTransfer.files } });
+            handleFiles({
+                target: {
+                    files: e.dataTransfer.files
+                }
+            });
         });
 
         // Handle file upload
@@ -399,7 +403,9 @@
 
         // Parse Excel
         function parseExcel(arrayBuffer) {
-            const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+            const workbook = XLSX.read(arrayBuffer, {
+                type: 'array'
+            });
             const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
             const data = XLSX.utils.sheet_to_json(firstSheet);
 
@@ -498,10 +504,30 @@
         // Get purpose code label and color
         function getPurposeInfo(code) {
             const purposes = {
-                'SALA': { label: 'Plaća', color: 'blue', bgColor: 'bg-blue-100', textColor: 'text-blue-700' },
-                'SUPP': { label: 'Dobavljač', color: 'amber', bgColor: 'bg-amber-100', textColor: 'text-amber-700' },
-                'RCPT': { label: 'Povrat', color: 'green', bgColor: 'bg-green-100', textColor: 'text-green-700' },
-                'OTHR': { label: 'Ostalo', color: 'gray', bgColor: 'bg-gray-100', textColor: 'text-gray-700' }
+                'SALA': {
+                    label: 'Plaća',
+                    color: 'blue',
+                    bgColor: 'bg-blue-100',
+                    textColor: 'text-blue-700'
+                },
+                'SUPP': {
+                    label: 'Dobavljač',
+                    color: 'amber',
+                    bgColor: 'bg-amber-100',
+                    textColor: 'text-amber-700'
+                },
+                'RCPT': {
+                    label: 'Povrat',
+                    color: 'green',
+                    bgColor: 'bg-green-100',
+                    textColor: 'text-green-700'
+                },
+                'OTHR': {
+                    label: 'Ostalo',
+                    color: 'gray',
+                    bgColor: 'bg-gray-100',
+                    textColor: 'text-gray-700'
+                }
             };
             return purposes[code] || purposes['OTHR'];
         }
@@ -526,7 +552,10 @@
 
         // Calculate summary
         function calculateSummary() {
-            let total = 0, salary = 0, supplier = 0, refund = 0;
+            let total = 0,
+                salary = 0,
+                supplier = 0,
+                refund = 0;
 
             payments.forEach(p => {
                 total += p.amount;
@@ -535,7 +564,12 @@
                 else if (p.purposeCode === 'RCPT') refund += p.amount;
             });
 
-            return { total, salary, supplier, refund };
+            return {
+                total,
+                salary,
+                supplier,
+                refund
+            };
         }
 
         // Format currency
@@ -576,9 +610,9 @@
             document.getElementById('refund-amount').textContent = formatCurrency(summary.refund);
 
             // Filter payments
-            const filteredPayments = currentFilter === 'all'
-                ? payments
-                : payments.filter(p => p.purposeCode === currentFilter);
+            const filteredPayments = currentFilter === 'all' ?
+                payments :
+                payments.filter(p => p.purposeCode === currentFilter);
 
             paymentCount.textContent = filteredPayments.length;
 
@@ -624,11 +658,11 @@
                                     <p class="font-mono text-sm text-dark-900 mt-1">${escapeHtml(payment.reference) || '-'}</p>
                                 </div>
                                 ${payment.description ? `
-                                <div class="col-span-2 pt-4 border-t border-dashed border-gray-200 mt-2">
-                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Opis plaćanja</span>
-                                    <p class="text-sm text-dark-900 mt-1">${escapeHtml(payment.description)}</p>
-                                </div>
-                                ` : ''}
+                                    <div class="col-span-2 pt-4 border-t border-dashed border-gray-200 mt-2">
+                                        <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Opis plaćanja</span>
+                                        <p class="text-sm text-dark-900 mt-1">${escapeHtml(payment.description)}</p>
+                                    </div>
+                                    ` : ''}
                             </div>
                         </div>
 
@@ -689,7 +723,10 @@
 
         // Font loading for UTF-8 support (Croatian characters: ć, č, š, ž, đ)
         let openSansFontsLoaded = false;
-        let openSansFontData = { regular: null, bold: null };
+        let openSansFontData = {
+            regular: null,
+            bold: null
+        };
 
         async function loadOpenSansFonts() {
             if (openSansFontsLoaded) return openSansFontData;
@@ -731,7 +768,9 @@
 
         // Download as PDF
         async function downloadAsPDF() {
-            const { jsPDF } = window.jspdf;
+            const {
+                jsPDF
+            } = window.jspdf;
             const pdf = new jsPDF('p', 'mm', 'a4');
             const pageWidth = pdf.internal.pageSize.getWidth();
             const pageHeight = pdf.internal.pageSize.getHeight();
@@ -739,9 +778,9 @@
             const contentWidth = pageWidth - (margin * 2);
 
             // Filter payments based on current filter
-            const filteredPayments = currentFilter === 'all'
-                ? payments
-                : payments.filter(p => p.purposeCode === currentFilter);
+            const filteredPayments = currentFilter === 'all' ?
+                payments :
+                payments.filter(p => p.purposeCode === currentFilter);
 
             if (filteredPayments.length === 0) {
                 showToast('Nema uplata za preuzimanje', true);
@@ -781,7 +820,13 @@
             pdf.setFontSize(10);
             setFont('normal');
             pdf.setTextColor(100);
-            const dateStr = new Date().toLocaleDateString('hr-HR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+            const dateStr = new Date().toLocaleDateString('hr-HR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
             pdf.text(`Generirano: ${dateStr}`, margin, 27);
             pdf.text(`Ukupno uplata: ${filteredPayments.length}`, margin, 32);
 
@@ -892,7 +937,9 @@
                         // Barcode label
                         pdf.setFontSize(7);
                         pdf.setTextColor(150);
-                        pdf.text('HUB3 BARKOD', barcodeX + barcodeWidth / 2, barcodeY + barcodeHeight + 4, { align: 'center' });
+                        pdf.text('HUB3 BARKOD', barcodeX + barcodeWidth / 2, barcodeY + barcodeHeight + 4, {
+                            align: 'center'
+                        });
                     } catch (e) {
                         console.error('Error adding barcode to PDF:', e);
                     }
@@ -949,11 +996,13 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         .animate-fade-in {
             animation: fade-in 0.4s ease forwards;
         }

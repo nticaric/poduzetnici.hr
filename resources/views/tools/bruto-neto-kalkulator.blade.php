@@ -761,8 +761,15 @@
 
         /* Animation */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .calc-card {
@@ -941,7 +948,7 @@
             <div class="calc-hero-content">
                 <a href="{{ route('tools.index') }}" class="calc-back-link">
                     <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                     Natrag na alate
                 </a>
@@ -958,7 +965,7 @@
                     <div class="calc-card-header">
                         <div class="calc-card-icon">
                             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                         </div>
                         <div>
@@ -971,13 +978,13 @@
                     <div class="direction-toggle">
                         <button type="button" class="direction-btn active" data-direction="bruto-neto">
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
                             Bruto → Neto
                         </button>
                         <button type="button" class="direction-btn" data-direction="neto-bruto">
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5m0 0l5-5m-5 5h12" />
                             </svg>
                             Neto → Bruto
                         </button>
@@ -1599,17 +1606,23 @@
                         <div class="toggle-group">
                             <label class="toggle-option active" data-value="none">
                                 <input type="radio" name="disability" value="none" checked>
-                                <div class="toggle-radio"><div class="toggle-radio-inner"></div></div>
+                                <div class="toggle-radio">
+                                    <div class="toggle-radio-inner"></div>
+                                </div>
                                 <span class="toggle-label">Bez invaliditeta</span>
                             </label>
                             <label class="toggle-option" data-value="partial">
                                 <input type="radio" name="disability" value="partial">
-                                <div class="toggle-radio"><div class="toggle-radio-inner"></div></div>
+                                <div class="toggle-radio">
+                                    <div class="toggle-radio-inner"></div>
+                                </div>
                                 <span class="toggle-label">Djelomicni invaliditet</span>
                             </label>
                             <label class="toggle-option" data-value="full">
                                 <input type="radio" name="disability" value="full">
-                                <div class="toggle-radio"><div class="toggle-radio-inner"></div></div>
+                                <div class="toggle-radio">
+                                    <div class="toggle-radio-inner"></div>
+                                </div>
                                 <span class="toggle-label">100% invaliditet</span>
                             </label>
                         </div>
@@ -1642,7 +1655,7 @@
                     <!-- Info Notice -->
                     <div class="info-notice">
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <p><strong>Napomena:</strong> Ovo je informativni izracun prema hrvatskim propisima za 2025. Stvarni iznosi mogu varirati ovisno o dodatnim faktorima. Za tocne informacije kontaktirajte poslodavca ili racunovodstvo.</p>
                     </div>
@@ -1737,7 +1750,7 @@
                     <div class="employer-section">
                         <div class="employer-title">
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                             </svg>
                             Trosak poslodavca
                         </div>
@@ -1767,7 +1780,11 @@
         const BASIC_ALLOWANCE = 600;
         const CHILD_COEFFICIENTS = [0.5, 0.7, 1.0, 1.4, 1.9, 2.5, 3.2, 4.0, 4.9];
         const DEPENDENT_COEFFICIENT = 0.5;
-        const DISABILITY_COEFFICIENTS = { none: 0, partial: 0.3, full: 1.0 };
+        const DISABILITY_COEFFICIENTS = {
+            none: 0,
+            partial: 0.3,
+            full: 1.0
+        };
         const MIO_RATE = 0.20;
         const HEALTH_RATE = 0.165;
         const MONTHLY_TAX_THRESHOLD = 5000;
@@ -1818,9 +1835,9 @@
 
             // Children allowance
             for (let i = 0; i < children; i++) {
-                const coef = i < CHILD_COEFFICIENTS.length
-                    ? CHILD_COEFFICIENTS[i]
-                    : CHILD_COEFFICIENTS[CHILD_COEFFICIENTS.length - 1] + (i - CHILD_COEFFICIENTS.length + 1) * 1.1;
+                const coef = i < CHILD_COEFFICIENTS.length ?
+                    CHILD_COEFFICIENTS[i] :
+                    CHILD_COEFFICIENTS[CHILD_COEFFICIENTS.length - 1] + (i - CHILD_COEFFICIENTS.length + 1) * 1.1;
                 childrenAllowance += coef * BASIC_ALLOWANCE;
             }
 
@@ -1905,7 +1922,17 @@
             const health = bruto * HEALTH_RATE;
             const bruto2 = bruto + health;
 
-            return { bruto, mio, dohodak, allowance, taxBase, tax, neto, health, bruto2 };
+            return {
+                bruto,
+                mio,
+                dohodak,
+                allowance,
+                taxBase,
+                tax,
+                neto,
+                health,
+                bruto2
+            };
         }
 
         // Calculate Neto to Bruto (iterative approach)

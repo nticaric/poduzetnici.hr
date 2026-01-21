@@ -9,10 +9,10 @@
             <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>
                     <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5" class="text-primary-500/30"/>
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5" class="text-primary-500/30" />
                     </pattern>
                 </defs>
-                <rect width="100" height="100" fill="url(#grid)"/>
+                <rect width="100" height="100" fill="url(#grid)" />
             </svg>
             <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent"></div>
         </div>
@@ -22,7 +22,7 @@
                     <a href="{{ route('tools.index') }}" class="inline-flex items-center text-sm font-medium text-gray-300 hover:text-white mb-6 transition-colors group">
                         <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center mr-3 group-hover:bg-primary-500/20 group-hover:text-primary-400 transition-all">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                             </svg>
                         </div>
                         Natrag na alate
@@ -37,7 +37,7 @@
                 <div class="flex items-center gap-4 bg-gray-800 p-4 rounded-2xl border border-gray-700 shadow-lg">
                     <div class="p-3 bg-white/10 rounded-xl">
                         <svg class="w-8 h-8 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                         </svg>
                     </div>
                     <div>
@@ -58,12 +58,13 @@
                 <div class="relative group">
                     <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors">
                         <svg class="w-5 h-5 text-gray-400 group-focus-within:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                     </div>
-                    <input type="text" id="search-input" placeholder="Pretraži po šifri (npr. 62.01) ili nazivu..." class="w-full pl-12 pr-20 py-4 md:py-5 text-lg font-medium text-gray-900 bg-gray-50 dark:bg-dark-900 border-0 ring-1 ring-gray-200 dark:ring-dark-700 rounded-xl focus:ring-2 focus:ring-primary-500/50 focus:bg-white dark:focus:bg-dark-900 dark:text-white transition-all placeholder:text-gray-500">
+                    <input type="text" id="search-input" placeholder="Pretraži po šifri (npr. 62.01) ili nazivu..."
+                        class="w-full pl-12 pr-20 py-4 md:py-5 text-lg font-medium text-gray-900 bg-gray-50 dark:bg-dark-900 border-0 ring-1 ring-gray-200 dark:ring-dark-700 rounded-xl focus:ring-2 focus:ring-primary-500/50 focus:bg-white dark:focus:bg-dark-900 dark:text-white transition-all placeholder:text-gray-500">
                     <div class="absolute inset-y-0 right-0 pr-4 flex items-center gap-2">
-                         <div id="loading-indicator" class="hidden">
+                        <div id="loading-indicator" class="hidden">
                             <svg class="animate-spin w-5 h-5 text-primary-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                                 <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -79,27 +80,29 @@
                     <div class="flex items-center gap-3 overflow-x-auto pb-2 xl:pb-0 no-scrollbar mask-gradient">
                         <span class="text-xs text-gray-600 dark:text-gray-400 font-bold uppercase tracking-wider flex-shrink-0">Razina:</span>
                         <div class="flex p-1 bg-gray-100 dark:bg-dark-900 rounded-lg flex-shrink-0">
-                             <button data-level="all" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md bg-white dark:bg-dark-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-black/5 dark:ring-white/10 transition-all">Sve</button>
-                             <button data-level="1" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/50 dark:hover:bg-dark-700 transition-colors">Područja</button>
-                             <button data-level="2" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/50 dark:hover:bg-dark-700 transition-colors">Odjeljci</button>
-                             <button data-level="3" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/50 dark:hover:bg-dark-700 transition-colors">Skupine</button>
-                             <button data-level="4" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/50 dark:hover:bg-dark-700 transition-colors">Razredi</button>
-                             <button data-level="5" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/50 dark:hover:bg-dark-700 transition-colors">Kategorije</button>
-                             <button data-level="6" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/50 dark:hover:bg-dark-700 transition-colors">Potkategorije</button>
+                            <button data-level="all" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md bg-white dark:bg-dark-800 text-gray-900 dark:text-white shadow-sm ring-1 ring-black/5 dark:ring-white/10 transition-all">Sve</button>
+                            <button data-level="1" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/50 dark:hover:bg-dark-700 transition-colors">Područja</button>
+                            <button data-level="2" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/50 dark:hover:bg-dark-700 transition-colors">Odjeljci</button>
+                            <button data-level="3" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/50 dark:hover:bg-dark-700 transition-colors">Skupine</button>
+                            <button data-level="4" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/50 dark:hover:bg-dark-700 transition-colors">Razredi</button>
+                            <button data-level="5" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/50 dark:hover:bg-dark-700 transition-colors">Kategorije</button>
+                            <button data-level="6" class="level-filter px-3 py-1.5 text-xs font-bold rounded-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/50 dark:hover:bg-dark-700 transition-colors">Potkategorije</button>
                         </div>
                     </div>
 
                     <!-- Action Buttons -->
                     <div class="flex items-center gap-2 flex-shrink-0 border-t xl:border-t-0 border-gray-100 dark:border-dark-700 pt-3 xl:pt-0">
-                        <button id="expand-all" class="flex-1 xl:flex-none px-4 py-2 bg-gray-50 hover:bg-gray-100 dark:bg-dark-700/50 dark:hover:bg-dark-700 text-gray-700 dark:text-gray-300 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm font-medium border border-gray-200 dark:border-dark-600">
+                        <button id="expand-all"
+                            class="flex-1 xl:flex-none px-4 py-2 bg-gray-50 hover:bg-gray-100 dark:bg-dark-700/50 dark:hover:bg-dark-700 text-gray-700 dark:text-gray-300 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm font-medium border border-gray-200 dark:border-dark-600">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
                             </svg>
                             <span class="hidden sm:inline">Proširi sve</span>
                         </button>
-                        <button id="collapse-all" class="flex-1 xl:flex-none px-4 py-2 bg-gray-50 hover:bg-gray-100 dark:bg-dark-700/50 dark:hover:bg-dark-700 text-gray-700 dark:text-gray-300 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm font-medium border border-gray-200 dark:border-dark-600">
+                        <button id="collapse-all"
+                            class="flex-1 xl:flex-none px-4 py-2 bg-gray-50 hover:bg-gray-100 dark:bg-dark-700/50 dark:hover:bg-dark-700 text-gray-700 dark:text-gray-300 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm font-medium border border-gray-200 dark:border-dark-600">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13H5v-2h14v2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13H5v-2h14v2z" />
                             </svg>
                             <span class="hidden sm:inline">Skupi sve</span>
                         </button>
@@ -127,7 +130,7 @@
         <div id="empty-state" class="hidden text-center py-20">
             <div class="w-24 h-24 bg-gray-50 dark:bg-dark-800 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg class="w-12 h-12 text-gray-300 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M12 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             </div>
             <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-1">Nema rezultata</h3>
@@ -139,7 +142,7 @@
             <div class="flex-shrink-0">
                 <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
                     <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
             </div>
@@ -149,7 +152,7 @@
                 <div class="mt-3 flex items-center gap-2">
                     <a href="mailto:kpd@dzs.hr" class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:underline font-medium">
                         <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                         kpd@dzs.hr
                     </a>
@@ -243,22 +246,23 @@
 
             const item = document.createElement('div');
             // Advanced border styles for tree hierarchy feeling
-            item.className = `relative flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-dark-700 bg-white dark:bg-dark-800 hover:border-primary-200 dark:hover:border-primary-500/30 hover:shadow-lg hover:shadow-gray-100/50 dark:hover:shadow-none transition-all duration-200 cursor-pointer ${isExpanded ? 'ring-2 ring-primary-500/10 dark:ring-primary-400/10 z-10' : ''}`;
-            
+            item.className =
+                `relative flex items-start gap-4 p-4 rounded-xl border border-gray-100 dark:border-dark-700 bg-white dark:bg-dark-800 hover:border-primary-200 dark:hover:border-primary-500/30 hover:shadow-lg hover:shadow-gray-100/50 dark:hover:shadow-none transition-all duration-200 cursor-pointer ${isExpanded ? 'ring-2 ring-primary-500/10 dark:ring-primary-400/10 z-10' : ''}`;
+
             // Indentation logic with connection lines
             if (depth > 0) {
-               // item.style.marginLeft = `${depth * 28}px`; // Moved to wrapper logic usually, but here simple margin works
+                // item.style.marginLeft = `${depth * 28}px`; // Moved to wrapper logic usually, but here simple margin works
             }
 
             // Toggle button
             const toggleContainer = document.createElement('div');
             toggleContainer.className = 'flex-shrink-0 pt-1';
-            
+
             const toggleBtn = document.createElement('button');
             toggleBtn.className = `w-6 h-6 flex items-center justify-center rounded-lg transition-colors ${hasChildren ? 'hover:bg-gray-100 dark:hover:bg-dark-700 text-gray-400 dark:text-gray-500' : 'invisible'}`;
-            toggleBtn.innerHTML = hasChildren
-                ? `<svg class="w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-90 text-primary-500' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>`
-                : '';
+            toggleBtn.innerHTML = hasChildren ?
+                `<svg class="w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-90 text-primary-500' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>` :
+                '';
             toggleContainer.appendChild(toggleBtn);
 
             // Content
@@ -305,7 +309,7 @@
             item.onclick = (e) => {
                 // Ignore if clicking copy or links
                 if (e.target.closest('button') && e.target !== toggleBtn) return;
-                
+
                 if (hasChildren) {
                     if (isExpanded) {
                         expandedNodes.delete(node.code);
@@ -335,7 +339,7 @@
         function performSearch(query) {
             searchQuery = query.toLowerCase().trim();
             const loadingIndicator = document.getElementById('loading-indicator');
-            
+
             if (loadingIndicator) loadingIndicator.classList.remove('hidden');
 
             // Small delay to allow UI to update
@@ -349,7 +353,7 @@
 
                 const results = kpdData.flat.filter(item => {
                     const matchesQuery = item.code.toLowerCase().includes(searchQuery) ||
-                                        item.name.toLowerCase().includes(searchQuery);
+                        item.name.toLowerCase().includes(searchQuery);
                     const matchesFilter = activeFilter === 'all' || item.level === parseInt(activeFilter);
                     return matchesQuery && matchesFilter;
                 });
@@ -357,7 +361,7 @@
                 treeContainer.classList.add('hidden');
                 searchResults.classList.remove('hidden');
                 searchResults.innerHTML = '';
-                
+
                 if (loadingIndicator) loadingIndicator.classList.add('hidden');
 
                 if (results.length === 0) {
@@ -486,7 +490,7 @@
                     b.classList.remove('bg-white', 'dark:bg-dark-800', 'text-gray-900', 'dark:text-white', 'shadow-sm', 'ring-1', 'ring-black/5', 'dark:ring-white/10');
                     b.classList.add('text-gray-600', 'dark:text-gray-400', 'hover:text-gray-900', 'dark:hover:text-gray-200', 'hover:bg-gray-200/50', 'dark:hover:bg-dark-700');
                 });
-                
+
                 // Set active
                 btn.classList.remove('text-gray-600', 'dark:text-gray-400', 'hover:text-gray-900', 'dark:hover:text-gray-200', 'hover:bg-gray-200/50', 'dark:hover:bg-dark-700');
                 btn.classList.add('bg-white', 'dark:bg-dark-800', 'text-gray-900', 'dark:text-white', 'shadow-sm', 'ring-1', 'ring-black/5', 'dark:ring-white/10');
@@ -512,19 +516,22 @@
                 opacity: 0;
                 transform: translateY(-4px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
+
         .no-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
         /* Gradient mask for scrolling horizontal list */
         .mask-gradient {
             mask-image: linear-gradient(to right, black 0%, black 90%, transparent 100%);

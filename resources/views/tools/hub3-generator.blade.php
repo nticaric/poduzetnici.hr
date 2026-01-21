@@ -9,10 +9,10 @@
             <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>
                     <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5" />
                     </pattern>
                 </defs>
-                <rect width="100" height="100" fill="url(#grid)"/>
+                <rect width="100" height="100" fill="url(#grid)" />
             </svg>
         </div>
         <div class="relative max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
@@ -20,7 +20,7 @@
                 <div>
                     <a href="{{ route('tools.index') }}" class="inline-flex items-center text-sm text-gray-400 hover:text-white mb-4 transition-colors">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                         </svg>
                         Natrag na alate
                     </a>
@@ -56,7 +56,7 @@
             <div id="drop-zone" class="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center cursor-pointer transition-all hover:border-primary-500 hover:bg-primary-50/30 group">
                 <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-100 group-hover:scale-110 transition-all">
                     <svg class="w-6 h-6 text-gray-400 group-hover:text-primary-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
                 </div>
                 <p class="text-gray-700 font-medium mb-1">Ispustite XML račune ovdje</p>
@@ -75,7 +75,7 @@
         <div id="empty-state" class="text-center py-16">
             <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
             </div>
             <p class="text-gray-400">Učitajte XML račune za generiranje HUB3 barkodova</p>
@@ -85,7 +85,7 @@
         <div class="mt-8 bg-primary-50 border border-primary-100 rounded-xl p-4 flex gap-4">
             <div class="flex-shrink-0">
                 <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             </div>
             <p class="text-sm text-gray-600">
@@ -133,7 +133,11 @@
         dropZone.addEventListener('drop', (e) => {
             e.preventDefault();
             dropZone.classList.remove('border-primary-500', 'bg-primary-50/50');
-            handleFiles({ target: { files: e.dataTransfer.files } });
+            handleFiles({
+                target: {
+                    files: e.dataTransfer.files
+                }
+            });
         });
 
         // Handle file upload
@@ -173,8 +177,8 @@
                 const prefixes = ['cbc:', 'cac:', ''];
                 for (const prefix of prefixes) {
                     const el = parent.querySelector(localName) ||
-                               parent.getElementsByTagName(`${prefix}${localName}`)[0] ||
-                               parent.getElementsByTagNameNS('*', localName)[0];
+                        parent.getElementsByTagName(`${prefix}${localName}`)[0] ||
+                        parent.getElementsByTagNameNS('*', localName)[0];
                     if (el) return el.textContent.trim();
                 }
                 return '';
@@ -190,16 +194,16 @@
             }
 
             const supplierParty = xml.querySelector('AccountingSupplierParty') ||
-                                  xml.getElementsByTagNameNS('*', 'AccountingSupplierParty')[0];
+                xml.getElementsByTagNameNS('*', 'AccountingSupplierParty')[0];
             let supplierName = '';
             let supplierAddress = '';
             let supplierCity = '';
 
             if (supplierParty) {
                 supplierName = getText(supplierParty, 'RegistrationName') ||
-                               getText(supplierParty, 'Name');
+                    getText(supplierParty, 'Name');
                 const postalAddress = supplierParty.querySelector('PostalAddress') ||
-                                     supplierParty.getElementsByTagNameNS('*', 'PostalAddress')[0];
+                    supplierParty.getElementsByTagNameNS('*', 'PostalAddress')[0];
                 if (postalAddress) {
                     supplierAddress = getText(postalAddress, 'StreetName');
                     supplierCity = getText(postalAddress, 'CityName');
@@ -207,16 +211,16 @@
             }
 
             const customerParty = xml.querySelector('AccountingCustomerParty') ||
-                                  xml.getElementsByTagNameNS('*', 'AccountingCustomerParty')[0];
+                xml.getElementsByTagNameNS('*', 'AccountingCustomerParty')[0];
             let customerName = '';
             let customerAddress = '';
             let customerCity = '';
 
             if (customerParty) {
                 customerName = getText(customerParty, 'RegistrationName') ||
-                               getText(customerParty, 'Name');
+                    getText(customerParty, 'Name');
                 const postalAddress = customerParty.querySelector('PostalAddress') ||
-                                     customerParty.getElementsByTagNameNS('*', 'PostalAddress')[0];
+                    customerParty.getElementsByTagNameNS('*', 'PostalAddress')[0];
                 if (postalAddress) {
                     customerAddress = getText(postalAddress, 'StreetName');
                     customerCity = getText(postalAddress, 'CityName');
@@ -224,7 +228,7 @@
             }
 
             const paymentMeans = xml.querySelector('PaymentMeans') ||
-                                 xml.getElementsByTagNameNS('*', 'PaymentMeans')[0];
+                xml.getElementsByTagNameNS('*', 'PaymentMeans')[0];
             let iban = '';
             let paymentReference = '';
             let paymentDescription = '';
@@ -232,7 +236,7 @@
 
             if (paymentMeans) {
                 const account = paymentMeans.querySelector('PayeeFinancialAccount') ||
-                               paymentMeans.getElementsByTagNameNS('*', 'PayeeFinancialAccount')[0];
+                    paymentMeans.getElementsByTagNameNS('*', 'PayeeFinancialAccount')[0];
                 if (account) {
                     iban = getText(account, 'ID');
                 }
@@ -242,13 +246,13 @@
             }
 
             const monetaryTotal = xml.querySelector('LegalMonetaryTotal') ||
-                                  xml.getElementsByTagNameNS('*', 'LegalMonetaryTotal')[0];
+                xml.getElementsByTagNameNS('*', 'LegalMonetaryTotal')[0];
             let amount = '0.00';
             let currency = 'EUR';
 
             if (monetaryTotal) {
                 const payableEl = monetaryTotal.querySelector('PayableAmount') ||
-                                 monetaryTotal.getElementsByTagNameNS('*', 'PayableAmount')[0];
+                    monetaryTotal.getElementsByTagNameNS('*', 'PayableAmount')[0];
                 if (payableEl) {
                     amount = payableEl.textContent.trim();
                     currency = payableEl.getAttribute('currencyID') || 'EUR';
@@ -393,21 +397,21 @@
                                     <p class="font-mono text-sm text-dark-900 mt-1">${escapeHtml(inv.model)} ${escapeHtml(inv.reference)}</p>
                                 </div>
                                 ${inv.dueDate ? `
-                                <div>
-                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Dospijeće</span>
-                                    <p class="text-sm text-dark-900 mt-1">${escapeHtml(formatDate(inv.dueDate))}</p>
-                                </div>
-                                ` : ''}
+                                    <div>
+                                        <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Dospijeće</span>
+                                        <p class="text-sm text-dark-900 mt-1">${escapeHtml(formatDate(inv.dueDate))}</p>
+                                    </div>
+                                    ` : ''}
                                 <div>
                                     <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Platitelj</span>
                                     <p class="text-sm text-dark-900 mt-1">${escapeHtml(inv.customerName)}</p>
                                 </div>
                                 ${inv.paymentDescription ? `
-                                <div class="col-span-2 pt-4 border-t border-dashed border-gray-200 mt-2">
-                                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Opis plaćanja</span>
-                                    <p class="text-sm text-dark-900 mt-1">${escapeHtml(inv.paymentDescription)}</p>
-                                </div>
-                                ` : ''}
+                                    <div class="col-span-2 pt-4 border-t border-dashed border-gray-200 mt-2">
+                                        <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Opis plaćanja</span>
+                                        <p class="text-sm text-dark-900 mt-1">${escapeHtml(inv.paymentDescription)}</p>
+                                    </div>
+                                    ` : ''}
                             </div>
                         </div>
 
@@ -497,11 +501,13 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         .animate-fade-in {
             animation: fade-in 0.4s ease forwards;
         }

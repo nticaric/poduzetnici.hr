@@ -2,56 +2,66 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    @include('partials.analytics')
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- SEO Meta Tags -->
-    <title>{{ isset($title) ? $title . ' | ' . config('app.name', 'Poduzetnici.hr') : config('app.name', 'Poduzetnici.hr') . ' - Vaša mreža za poslovni uspjeh' }}</title>
-    <meta name="description" content="{{ $description ?? 'Poduzetnici.hr - Povežite se s tisućama hrvatskih poduzetnika. Pronađite partnere, klijente, oglase i besplatne poslovne alate na jednom mjestu.' }}">
-    <meta name="keywords" content="{{ $keywords ?? 'poduzetnici, poslovanje, hrvatska, oglasi, poslovni alati, partneri, mrežanje, startup' }}">
+    @php
+        $pageTitle = isset($title) && !$title->isEmpty() ? trim($title) : null;
+        $pageDescription = isset($description) && !$description->isEmpty() ? trim($description) : 'Poduzetnici.hr - Povežite se s tisućama hrvatskih poduzetnika. Pronađite partnere, klijente, oglase i besplatne poslovne alate na jednom mjestu.';
+        $pageKeywords = isset($keywords) && !$keywords->isEmpty() ? trim($keywords) : 'poduzetnici, poslovanje, hrvatska, oglasi, poslovni alati, partneri, mrežanje, startup';
+        $pageRobots = isset($robots) && !$robots->isEmpty() ? trim($robots) : 'index, follow';
+        $pageCanonical = isset($canonical) && !$canonical->isEmpty() ? trim($canonical) : url()->current();
+        $pageOgType = isset($ogType) && !$ogType->isEmpty() ? trim($ogType) : 'website';
+        $pageOgImage = isset($ogImage) && !$ogImage->isEmpty() ? trim($ogImage) : asset('images/og-default.jpg');
+    @endphp
+    <title>{{ $pageTitle ? $pageTitle . ' | ' . config('app.name', 'Poduzetnici.hr') : config('app.name', 'Poduzetnici.hr') . ' - Vaša mreža za poslovni uspjeh' }}</title>
+    <meta name="description" content="{{ $pageDescription }}">
+    <meta name="keywords" content="{{ $pageKeywords }}">
     <meta name="author" content="Poduzetnici.hr">
-    <meta name="robots" content="{{ $robots ?? 'index, follow' }}">
-    <link rel="canonical" href="{{ $canonical ?? url()->current() }}">
+    <meta name="robots" content="{{ $pageRobots }}">
+    <link rel="canonical" href="{{ $pageCanonical }}">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="{{ $ogType ?? 'website' }}">
+    <meta property="og:type" content="{{ $pageOgType }}">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="{{ isset($title) ? $title . ' | Poduzetnici.hr' : 'Poduzetnici.hr - Vaša mreža za poslovni uspjeh' }}">
-    <meta property="og:description" content="{{ $description ?? 'Povežite se s tisućama hrvatskih poduzetnika. Pronađite partnere, klijente i resurse na jednom mjestu.' }}">
-    <meta property="og:image" content="{{ $ogImage ?? asset('images/og-default.jpg') }}">
+    <meta property="og:title" content="{{ $pageTitle ? $pageTitle . ' | Poduzetnici.hr' : 'Poduzetnici.hr - Vaša mreža za poslovni uspjeh' }}">
+    <meta property="og:description" content="{{ $pageDescription }}">
+    <meta property="og:image" content="{{ $pageOgImage }}">
     <meta property="og:locale" content="hr_HR">
     <meta property="og:site_name" content="Poduzetnici.hr">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="{{ url()->current() }}">
-    <meta name="twitter:title" content="{{ isset($title) ? $title . ' | Poduzetnici.hr' : 'Poduzetnici.hr - Vaša mreža za poslovni uspjeh' }}">
-    <meta name="twitter:description" content="{{ $description ?? 'Povežite se s tisućama hrvatskih poduzetnika. Pronađite partnere, klijente i resurse na jednom mjestu.' }}">
-    <meta name="twitter:image" content="{{ $ogImage ?? asset('images/og-default.jpg') }}">
+    <meta name="twitter:title" content="{{ $pageTitle ? $pageTitle . ' | Poduzetnici.hr' : 'Poduzetnici.hr - Vaša mreža za poslovni uspjeh' }}">
+    <meta name="twitter:description" content="{{ $pageDescription }}">
+    <meta name="twitter:image" content="{{ $pageOgImage }}">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Organization",
+        "@@context": "https://schema.org",
+        "@@type": "Organization",
         "name": "Poduzetnici.hr",
         "url": "{{ config('app.url') }}",
         "logo": "{{ asset('images/logo.png') }}",
         "description": "Vaša mreža za poslovni uspjeh u Hrvatskoj",
         "address": {
-            "@type": "PostalAddress",
+            "@@type": "PostalAddress",
             "addressCountry": "HR"
         },
         "sameAs": []
     }
     </script>
-    @if(isset($structuredData))
-    <script type="application/ld+json">
-    {!! json_encode($structuredData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
-    </script>
-    @endif
+    @isset($structuredData)
+        <script type="application/ld+json">
+        {!! json_encode($structuredData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+        </script>
+    @endisset
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,9 +70,6 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <!-- Analytics -->
-    <script async defer data-domain="poduzetnici.hr" src="https://plausible.tnt.studio/js/plausible.js"></script>
 </head>
 
 <body class="font-sans antialiased bg-gray-50 text-gray-900">

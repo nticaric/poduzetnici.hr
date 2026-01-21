@@ -9,10 +9,10 @@
             <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>
                     <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5" />
                     </pattern>
                 </defs>
-                <rect width="100" height="100" fill="url(#grid)"/>
+                <rect width="100" height="100" fill="url(#grid)" />
             </svg>
         </div>
         <div class="relative max-w-7xl mx-auto py-12 px-4 sm:py-16 sm:px-6 lg:px-8">
@@ -20,7 +20,7 @@
                 <div>
                     <a href="{{ route('tools.index') }}" class="inline-flex items-center text-sm text-gray-400 hover:text-white mb-4 transition-colors">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                         </svg>
                         Natrag na alate
                     </a>
@@ -46,7 +46,7 @@
             <div class="flex items-center gap-3 mb-6">
                 <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
                     <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                     </svg>
                 </div>
                 <div>
@@ -103,13 +103,13 @@
                 <div class="flex gap-2">
                     <a href="{{ asset('examples/sepa-pain001-example.csv') }}" download class="inline-flex items-center gap-2 text-xs font-medium text-gray-600 hover:text-gray-900 border border-gray-200 hover:border-gray-300 bg-white px-3 py-1.5 rounded-lg transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
                         CSV
                     </a>
                     <a href="{{ asset('examples/sepa-pain001-example.xlsx') }}" download class="inline-flex items-center gap-2 text-xs font-medium text-gray-600 hover:text-gray-900 border border-gray-200 hover:border-gray-300 bg-white px-3 py-1.5 rounded-lg transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
                         Excel
                     </a>
@@ -122,7 +122,7 @@
             <div id="drop-zone" class="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center cursor-pointer transition-all hover:border-blue-500 hover:bg-blue-50/30 group">
                 <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 group-hover:scale-110 transition-all">
                     <svg class="w-6 h-6 text-gray-400 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                 </div>
                 <p class="text-gray-700 font-medium mb-1">Ispustite CSV/Excel datoteku ovdje</p>
@@ -157,7 +157,7 @@
 
             <button onclick="generatePain001()" class="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-lg transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center justify-center gap-3">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                 </svg>
                 Generiraj pain.001 XML
             </button>
@@ -170,21 +170,21 @@
         <div id="empty-state" class="text-center py-16">
             <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
             </div>
             <p class="text-gray-400 mb-4">Učitajte CSV ili Excel datoteku s transakcijama</p>
             <div class="flex items-center justify-center gap-3">
                 <a href="{{ asset('examples/sepa-pain001-example.csv') }}" download class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
                     Primjer CSV
                 </a>
                 <span class="text-gray-300">|</span>
                 <a href="{{ asset('examples/sepa-pain001-example.xlsx') }}" download class="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-700">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
                     Primjer Excel
                 </a>
@@ -195,7 +195,7 @@
         <div class="mt-8 bg-gray-50 border border-gray-200 rounded-xl p-6">
             <h3 class="text-sm font-bold text-dark-900 mb-4 flex items-center gap-2">
                 <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 Format CSV datoteke
             </h3>
@@ -269,7 +269,7 @@
         <div class="mt-6 bg-blue-50 border border-blue-100 rounded-xl p-4 flex gap-4">
             <div class="flex-shrink-0">
                 <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
             </div>
             <p class="text-sm text-gray-600">
@@ -323,7 +323,11 @@
         dropZone.addEventListener('drop', (e) => {
             e.preventDefault();
             dropZone.classList.remove('border-blue-500', 'bg-blue-50/50');
-            handleFiles({ target: { files: e.dataTransfer.files } });
+            handleFiles({
+                target: {
+                    files: e.dataTransfer.files
+                }
+            });
         });
 
         // Handle file upload
@@ -421,7 +425,9 @@
 
         // Parse Excel
         function parseExcel(arrayBuffer) {
-            const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+            const workbook = XLSX.read(arrayBuffer, {
+                type: 'array'
+            });
             const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
             const data = XLSX.utils.sheet_to_json(firstSheet);
 
@@ -591,11 +597,11 @@
             <ReqdExctnDt>${executionDate}</ReqdExctnDt>
             <Dbtr>
                 <Nm>${escapeXml(debtorName)}</Nm>${debtorAddress || debtorCity ? `
-                <PstlAdr>${debtorAddress ? `
+                    <PstlAdr>${debtorAddress ? `
                     <StrtNm>${escapeXml(debtorAddress)}</StrtNm>` : ''}${debtorCity ? `
                     <TwnNm>${escapeXml(debtorCity)}</TwnNm>` : ''}
-                    <Ctry>${debtorCountry}</Ctry>
-                </PstlAdr>` : ''}
+                        <Ctry>${debtorCountry}</Ctry>
+                    </PstlAdr>` : ''}
             </Dbtr>
             <DbtrAcct>
                 <Id>
@@ -609,40 +615,42 @@
             </DbtrAgt>
             <ChrgBr>SLEV</ChrgBr>
 ${transactions.map(tx => `            <CdtTrfTxInf>
-                <PmtId>
-                    <EndToEndId>${escapeXml(tx.endToEndId)}</EndToEndId>
-                </PmtId>
-                <Amt>
-                    <InstdAmt Ccy="${tx.currency}">${tx.amount.toFixed(2)}</InstdAmt>
-                </Amt>${tx.creditorBic ? `
+                    <PmtId>
+                        <EndToEndId>${escapeXml(tx.endToEndId)}</EndToEndId>
+                    </PmtId>
+                    <Amt>
+                        <InstdAmt Ccy="${tx.currency}">${tx.amount.toFixed(2)}</InstdAmt>
+                    </Amt>${tx.creditorBic ? `
                 <CdtrAgt>
                     <FinInstnId>
                         <BIC>${tx.creditorBic}</BIC>
                     </FinInstnId>
                 </CdtrAgt>` : ''}
-                <Cdtr>
-                    <Nm>${escapeXml(tx.creditorName)}</Nm>${tx.creditorAddress || tx.creditorCity ? `
+                    <Cdtr>
+                        <Nm>${escapeXml(tx.creditorName)}</Nm>${tx.creditorAddress || tx.creditorCity ? `
                     <PstlAdr>${tx.creditorAddress ? `
-                        <StrtNm>${escapeXml(tx.creditorAddress)}</StrtNm>` : ''}${tx.creditorCity ? `
-                        <TwnNm>${escapeXml(tx.creditorCity)}</TwnNm>` : ''}
+                            <StrtNm>${escapeXml(tx.creditorAddress)}</StrtNm>` : ''}${tx.creditorCity ? `
+                            <TwnNm>${escapeXml(tx.creditorCity)}</TwnNm>` : ''}
                         <Ctry>${tx.creditorCountry}</Ctry>
                     </PstlAdr>` : ''}
-                </Cdtr>
-                <CdtrAcct>
-                    <Id>
-                        <IBAN>${tx.creditorIban}</IBAN>
-                    </Id>
-                </CdtrAcct>
-                <RmtInf>
-                    <Ustrd>${escapeXml(tx.description)}</Ustrd>
-                </RmtInf>
-            </CdtTrfTxInf>`).join('\n')}
+                    </Cdtr>
+                    <CdtrAcct>
+                        <Id>
+                            <IBAN>${tx.creditorIban}</IBAN>
+                        </Id>
+                    </CdtrAcct>
+                    <RmtInf>
+                        <Ustrd>${escapeXml(tx.description)}</Ustrd>
+                    </RmtInf>
+                </CdtTrfTxInf>`).join('\n')}
         </PmtInf>
     </CstmrCdtTrfInitn>
 </Document>`;
 
             // Download XML file
-            const blob = new Blob([xml], { type: 'application/xml' });
+            const blob = new Blob([xml], {
+                type: 'application/xml'
+            });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
@@ -708,11 +716,13 @@ ${transactions.map(tx => `            <CdtTrfTxInf>
                 opacity: 0;
                 transform: translateY(10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
         .animate-fade-in {
             animation: fade-in 0.3s ease forwards;
         }

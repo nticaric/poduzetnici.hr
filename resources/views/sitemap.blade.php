@@ -1,4 +1,4 @@
-<?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>
+<?php echo '<?xml version="1.0" encoding="UTF-8"?>'; ?>'; ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     {{-- Static Pages --}}
     <url>
@@ -73,22 +73,22 @@
     </url>
 
     {{-- Dynamic Ad Pages --}}
-    @foreach($ads as $ad)
-    <url>
-        <loc>{{ route('ads.show', $ad->id) }}</loc>
-        <lastmod>{{ $ad->updated_at->toW3cString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
+    @foreach ($ads as $ad)
+        <url>
+            <loc>{{ route('ads.show', $ad->id) }}</loc>
+            <lastmod>{{ $ad->updated_at->toW3cString() }}</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.6</priority>
+        </url>
     @endforeach
 
     {{-- Public Profile Pages --}}
-    @foreach($profiles as $profile)
-    <url>
-        <loc>{{ route('profile.show', $profile->slug) }}</loc>
-        <lastmod>{{ $profile->updated_at->toW3cString() }}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
+    @foreach ($profiles as $profile)
+        <url>
+            <loc>{{ route('profile.show', $profile->slug) }}</loc>
+            <lastmod>{{ $profile->updated_at->toW3cString() }}</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.6</priority>
+        </url>
     @endforeach
 </urlset>

@@ -12,8 +12,8 @@
         'offers' => [
             '@type' => 'Offer',
             'price' => '0',
-            'priceCurrency' => 'EUR'
-        ]
+            'priceCurrency' => 'EUR',
+        ],
     ])</x-slot>
 
     <!-- Google Fonts -->
@@ -614,8 +614,15 @@
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .calc-card {
@@ -667,7 +674,7 @@
             <div class="calc-hero-content">
                 <a href="{{ route('tools.index') }}" class="calc-back-link">
                     <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                     </svg>
                     Natrag na alate
                 </a>
@@ -684,7 +691,7 @@
                     <div class="calc-card-header">
                         <div class="calc-card-icon">
                             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                             </svg>
                         </div>
                         <div>
@@ -766,7 +773,7 @@
                     <!-- Security Notice -->
                     <div class="security-notice">
                         <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                         <p><strong>Informativni izračun.</strong> Stvarna rata može varirati ovisno o uvjetima banke. Za točne informacije kontaktirajte financijsku instituciju.</p>
                     </div>
@@ -821,7 +828,7 @@
                         <button type="button" class="amort-toggle-btn" id="amort-toggle">
                             <span>Prikaži plan otplate</span>
                             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
                     </div>
@@ -922,7 +929,7 @@
                 monthlyPayment = principal / termMonths;
             } else {
                 monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, termMonths)) /
-                                (Math.pow(1 + monthlyRate, termMonths) - 1);
+                    (Math.pow(1 + monthlyRate, termMonths) - 1);
             }
 
             const totalPayment = monthlyPayment * termMonths;
@@ -1096,9 +1103,9 @@
         amortToggle.addEventListener('click', function() {
             this.classList.toggle('active');
             amortSection.classList.toggle('active');
-            this.querySelector('span').textContent = amortSection.classList.contains('active')
-                ? 'Sakrij plan otplate'
-                : 'Prikaži plan otplate';
+            this.querySelector('span').textContent = amortSection.classList.contains('active') ?
+                'Sakrij plan otplate' :
+                'Prikaži plan otplate';
         });
 
         // Initialize

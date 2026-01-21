@@ -76,172 +76,172 @@
 
                 <!-- HUB3 Batch Generator Card -->
                 <a href="{{ route('tools.hub3-batch-generator') }}" class="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 overflow-hidden">
-                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-emerald-600"></div>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-emerald-600"></div>
 
-                     <div class="flex items-start justify-between mb-6">
+                    <div class="flex items-start justify-between mb-6">
                         <div class="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center text-green-600 group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
-                           <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                           </svg>
+                            <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
                         </div>
                         <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Besplatno</span>
-                     </div>
+                    </div>
 
-                     <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-green-600 transition-colors">HUB3 Batch Generator</h3>
-                     <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
-                         Generirajte HUB3 barkodove iz CSV/Excel datoteka. Idealno za isplatu plaća, dobavljače i povrate.
-                     </p>
+                    <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-green-600 transition-colors">HUB3 Batch Generator</h3>
+                    <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
+                        Generirajte HUB3 barkodove iz CSV/Excel datoteka. Idealno za isplatu plaća, dobavljače i povrate.
+                    </p>
 
-                     <div class="flex flex-wrap gap-2 mb-8">
+                    <div class="flex flex-wrap gap-2 mb-8">
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">CSV/Excel</span>
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Plaće</span>
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Batch</span>
-                     </div>
+                    </div>
 
-                     <div class="mt-auto">
+                    <div class="mt-auto">
                         <span class="w-full flex items-center justify-center gap-2 bg-white border-2 border-green-100 text-green-700 font-semibold py-3 px-4 rounded-xl group-hover:bg-green-600 group-hover:border-green-600 group-hover:text-white transition-all">
                             Pokreni generator
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
                         </span>
-                     </div>
+                    </div>
                 </a>
 
                 <!-- SEPA pain.001 Generator Card -->
                 <a href="{{ route('tools.sepa-pain001-generator') }}" class="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 overflow-hidden">
-                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-indigo-600"></div>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-indigo-600"></div>
 
-                     <div class="flex items-start justify-between mb-6">
+                    <div class="flex items-start justify-between mb-6">
                         <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                           <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                           </svg>
+                            <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
                         </div>
                         <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Besplatno</span>
-                     </div>
+                    </div>
 
-                     <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-blue-600 transition-colors">SEPA pain.001</h3>
-                     <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
-                         Generirajte SEPA Credit Transfer XML za grupna plaćanja putem e-bankarstva.
-                     </p>
+                    <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-blue-600 transition-colors">SEPA pain.001</h3>
+                    <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
+                        Generirajte SEPA Credit Transfer XML za grupna plaćanja putem e-bankarstva.
+                    </p>
 
-                     <div class="flex flex-wrap gap-2 mb-8">
+                    <div class="flex flex-wrap gap-2 mb-8">
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">CSV/Excel</span>
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">ISO 20022</span>
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">E-Banking</span>
-                     </div>
+                    </div>
 
-                     <div class="mt-auto">
+                    <div class="mt-auto">
                         <span class="w-full flex items-center justify-center gap-2 bg-white border-2 border-blue-100 text-blue-700 font-semibold py-3 px-4 rounded-xl group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:text-white transition-all">
                             Pokreni generator
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
                         </span>
-                     </div>
+                    </div>
                 </a>
 
                 <!-- KPD Preglednik Card -->
                 <a href="{{ route('tools.kpd-preglednik') }}" class="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 overflow-hidden">
-                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-orange-600"></div>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-orange-600"></div>
 
-                     <div class="flex items-start justify-between mb-6">
+                    <div class="flex items-start justify-between mb-6">
                         <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300">
-                           <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                           </svg>
+                            <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                            </svg>
                         </div>
                         <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Besplatno</span>
-                     </div>
+                    </div>
 
-                     <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-amber-600 transition-colors">KPD Preglednik</h3>
-                     <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
-                         Pretraživanje KPD 2025 šifri za eRačune i fiskalizaciju. Hijerarhijski prikaz svih 5.800+ kodova.
-                     </p>
+                    <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-amber-600 transition-colors">KPD Preglednik</h3>
+                    <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
+                        Pretraživanje KPD 2025 šifri za eRačune i fiskalizaciju. Hijerarhijski prikaz svih 5.800+ kodova.
+                    </p>
 
-                     <div class="flex flex-wrap gap-2 mb-8">
+                    <div class="flex flex-wrap gap-2 mb-8">
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">eRačun</span>
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Fiskalizacija</span>
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">KPD 2025</span>
-                     </div>
+                    </div>
 
-                     <div class="mt-auto">
+                    <div class="mt-auto">
                         <span class="w-full flex items-center justify-center gap-2 bg-white border-2 border-amber-100 text-amber-700 font-semibold py-3 px-4 rounded-xl group-hover:bg-amber-600 group-hover:border-amber-600 group-hover:text-white transition-all">
                             Pretraži šifre
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
                         </span>
-                     </div>
+                    </div>
                 </a>
 
                 <!-- Kreditni Kalkulator Card -->
                 <a href="{{ route('tools.kreditni-kalkulator') }}" class="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 overflow-hidden">
-                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-cyan-600"></div>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-teal-400 to-cyan-600"></div>
 
-                     <div class="flex items-start justify-between mb-6">
+                    <div class="flex items-start justify-between mb-6">
                         <div class="w-14 h-14 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
-                           <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                           </svg>
+                            <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                            </svg>
                         </div>
                         <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Besplatno</span>
-                     </div>
+                    </div>
 
-                     <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-teal-600 transition-colors">Kreditni Kalkulator</h3>
-                     <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
-                         Izračunajte mjesečnu ratu, ukupne kamate i plan otplate za kredite i hipoteke.
-                     </p>
+                    <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-teal-600 transition-colors">Kreditni Kalkulator</h3>
+                    <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
+                        Izračunajte mjesečnu ratu, ukupne kamate i plan otplate za kredite i hipoteke.
+                    </p>
 
-                     <div class="flex flex-wrap gap-2 mb-8">
+                    <div class="flex flex-wrap gap-2 mb-8">
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Kredit</span>
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Hipoteka</span>
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Amortizacija</span>
-                     </div>
+                    </div>
 
-                     <div class="mt-auto">
+                    <div class="mt-auto">
                         <span class="w-full flex items-center justify-center gap-2 bg-white border-2 border-teal-100 text-teal-700 font-semibold py-3 px-4 rounded-xl group-hover:bg-teal-600 group-hover:border-teal-600 group-hover:text-white transition-all">
                             Izračunaj ratu
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
                         </span>
-                     </div>
+                    </div>
                 </a>
 
                 <!-- Bruto Neto Kalkulator Card -->
                 <a href="{{ route('tools.bruto-neto-kalkulator') }}" class="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1 overflow-hidden">
-                     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-amber-600"></div>
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-orange-400 to-amber-600"></div>
 
-                     <div class="flex items-start justify-between mb-6">
+                    <div class="flex items-start justify-between mb-6">
                         <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300">
-                           <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
-                           </svg>
+                            <svg class="w-8 h-8 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
                         </div>
                         <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Besplatno</span>
-                     </div>
+                    </div>
 
-                     <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-orange-600 transition-colors">Bruto Neto Kalkulator</h3>
-                     <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
-                         Izračunajte neto plaću iz bruto iznosa ili obrnuto. Uključuje doprinose, porez i osobni odbitak za 2025.
-                     </p>
+                    <h3 class="text-2xl font-bold text-dark-900 mb-3 group-hover:text-orange-600 transition-colors">Bruto Neto Kalkulator</h3>
+                    <p class="text-gray-500 mb-6 flex-grow leading-relaxed">
+                        Izračunajte neto plaću iz bruto iznosa ili obrnuto. Uključuje doprinose, porez i osobni odbitak za 2025.
+                    </p>
 
-                     <div class="flex flex-wrap gap-2 mb-8">
+                    <div class="flex flex-wrap gap-2 mb-8">
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">Plaća</span>
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">MIO/Porez</span>
                         <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded">2025</span>
-                     </div>
+                    </div>
 
-                     <div class="mt-auto">
+                    <div class="mt-auto">
                         <span class="w-full flex items-center justify-center gap-2 bg-white border-2 border-orange-100 text-orange-700 font-semibold py-3 px-4 rounded-xl group-hover:bg-orange-600 group-hover:border-orange-600 group-hover:text-white transition-all">
                             Izračunaj plaću
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </svg>
                         </span>
-                     </div>
+                    </div>
                 </a>
 
                 <!-- Upcoming Tool 2 -->

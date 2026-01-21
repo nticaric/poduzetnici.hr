@@ -9,6 +9,7 @@ The Laravel Boost guidelines are specifically curated by Laravel maintainers for
 - The application runs in a Docker container named `poduzetnici.test`
 - All artisan commands must be run inside the container: `docker exec poduzetnici.test php artisan <command>`
 - Example: `docker exec poduzetnici.test php artisan migrate --no-interaction`
+- To test the site with curl, use `http://poduzetnici.test` (not localhost)
 
 ## Foundational Context
 This application is a Laravel application and its main Laravel ecosystems package & versions are below. You are an expert with them all. Ensure you abide by these specific packages & versions.

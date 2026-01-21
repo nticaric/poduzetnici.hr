@@ -31,17 +31,17 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div class="flex flex-col lg:flex-row gap-6">
-                
+
                 <!-- Left Sidebar - Filters -->
                 <aside class="lg:w-72 flex-shrink-0">
                     <form method="GET" action="{{ route('profiles.index') }}" x-data="{ open: true }" class="sticky top-4">
                         <!-- Keep search value -->
-                        @if(request('search'))
+                        @if (request('search'))
                             <input type="hidden" name="search" value="{{ request('search') }}">
                         @endif
 
                         <!-- Active Filters Summary -->
-                        @if(request('industry') || request('account_type') || request('has_website') || request('has_phone'))
+                        @if (request('industry') || request('account_type') || request('has_website') || request('has_phone'))
                             <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-4">
                                 <div class="flex items-center justify-between mb-2">
                                     <span class="text-sm font-medium text-blue-800">Aktivni filteri</span>
@@ -50,22 +50,22 @@
                                     </a>
                                 </div>
                                 <div class="flex flex-wrap gap-2">
-                                    @if(request('industry'))
+                                    @if (request('industry'))
                                         <span class="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">
                                             {{ request('industry') }}
                                         </span>
                                     @endif
-                                    @if(request('account_type'))
+                                    @if (request('account_type'))
                                         <span class="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">
                                             {{ request('account_type') === 'company' ? 'Tvrtka' : 'Fizička osoba' }}
                                         </span>
                                     @endif
-                                    @if(request('has_website'))
+                                    @if (request('has_website'))
                                         <span class="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">
                                             Ima web
                                         </span>
                                     @endif
-                                    @if(request('has_phone'))
+                                    @if (request('has_phone'))
                                         <span class="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs">
                                             Ima telefon
                                         </span>
@@ -89,7 +89,7 @@
                                         <span class="text-sm text-gray-700">{{ $industry }}</span>
                                     </label>
                                 @endforeach
-                                @if(request('industry'))
+                                @if (request('industry'))
                                     <button type="button" onclick="document.querySelector('input[name=industry]:checked').checked = false; this.closest('form').submit();" class="text-sm text-primary-600 hover:text-primary-700 font-medium mt-2">
                                         Poništi odabir
                                     </button>
@@ -114,7 +114,7 @@
                                     <input type="radio" name="account_type" value="individual" {{ request('account_type') == 'individual' ? 'checked' : '' }} class="w-4 h-4 text-primary-600 border-gray-300 focus:ring-primary-500" onchange="this.form.submit()">
                                     <span class="text-sm text-gray-700">Fizička osoba</span>
                                 </label>
-                                @if(request('account_type'))
+                                @if (request('account_type'))
                                     <button type="button" onclick="document.querySelector('input[name=account_type]:checked').checked = false; this.closest('form').submit();" class="text-sm text-primary-600 hover:text-primary-700 font-medium mt-2">
                                         Poništi odabir
                                     </button>
@@ -227,7 +227,8 @@
                                                         @if ($user->phone)
                                                             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
                                                                 <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                                                                 </svg>
                                                                 Telefon
                                                             </span>
