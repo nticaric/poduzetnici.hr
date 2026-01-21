@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">Postavke profila</x-slot>
+    <x-slot name="description">Upravljajte svojim podacima i postavkama računa na Poduzetnici.hr platformi.</x-slot>
+    <x-slot name="robots">noindex, nofollow</x-slot>
+
     <div class="min-h-screen bg-gray-50">
         <!-- Header -->
         <div class="bg-white border-b border-gray-100">

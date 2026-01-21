@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">Besplatni poslovni alati</x-slot>
+    <x-slot name="description">Besplatni online alati za poduzetnike: HUB3 generator, SEPA plaćanja, kreditni kalkulator, bruto-neto kalkulator i više. Bez registracije, bez naknada.</x-slot>
+    <x-slot name="keywords">poslovni alati, HUB3 generator, SEPA, kreditni kalkulator, bruto neto kalkulator, besplatni alati, poduzetnici</x-slot>
+
     <!-- Hero Section -->
     <div class="relative bg-dark-900 overflow-hidden">
         <!-- Abstract Background -->

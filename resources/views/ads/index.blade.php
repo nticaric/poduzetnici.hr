@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">Poslovni oglasi</x-slot>
+    <x-slot name="description">Pregledajte poslovne oglase hrvatskih poduzetnika. Nudite ili tražite usluge, partnere i poslovne prilike na jednom mjestu.</x-slot>
+    <x-slot name="keywords">poslovni oglasi, poslovna ponuda, partnerstva, usluge, B2B oglasi, hrvatska</x-slot>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Oglasi') }}

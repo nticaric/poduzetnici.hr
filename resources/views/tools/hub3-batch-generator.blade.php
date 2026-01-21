@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">HUB3 Batch Generator</x-slot>
+    <x-slot name="description">Generirajte više HUB3 barkodova odjednom iz Excel ili CSV datoteke. Idealno za masovno kreiranje uplatnica i batch procesiranje plaćanja.</x-slot>
+    <x-slot name="keywords">HUB3 batch, masovni HUB3, Excel uplatnice, CSV HUB3, bulk generator</x-slot>
+
     <!-- Hero Section -->
     <div class="relative bg-dark-900 overflow-hidden">
         <div class="absolute inset-0 opacity-5">

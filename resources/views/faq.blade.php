@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">Često postavljana pitanja (FAQ)</x-slot>
+    <x-slot name="description">Pronađite odgovore na najčešća pitanja o korištenju platforme Poduzetnici.hr, registraciji, alatima i objavljivanju oglasa.</x-slot>
+    <x-slot name="keywords">FAQ, često postavljana pitanja, pomoć, poduzetnici.hr, registracija, oglasi</x-slot>
+
     <!-- Hero Section -->
     <div class="relative bg-dark-900 overflow-hidden">
         <!-- Abstract Background -->

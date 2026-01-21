@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">Nadzorna ploča</x-slot>
+    <x-slot name="description">Upravljajte svojim profilom, oglasima i porukama na Poduzetnici.hr platformi.</x-slot>
+    <x-slot name="robots">noindex, nofollow</x-slot>
+
     <div class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
         <!-- Header Section -->
         <div class="bg-white border-b border-gray-100">

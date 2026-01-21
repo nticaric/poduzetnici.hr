@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">HUB3 Generator</x-slot>
+    <x-slot name="description">Besplatni HUB3 barkod generator za uplatnice. Generirajte 2D barkod za plaćanje u Hrvatskoj prema standardu HUB3. Brzo, jednostavno i bez registracije.</x-slot>
+    <x-slot name="keywords">HUB3 generator, HUB3 barkod, uplatnica, 2D barkod, plaćanje, Hrvatska</x-slot>
+
     <!-- Hero Section -->
     <div class="relative bg-dark-900 overflow-hidden">
         <div class="absolute inset-0 opacity-5">

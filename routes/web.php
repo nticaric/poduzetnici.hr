@@ -5,11 +5,14 @@ use App\Http\Controllers\AdvertisingController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicProfileController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\UploadController;
 
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 Route::get('/poduzetnici', [PublicProfileController::class, 'index'])->name('profiles.index');
 Route::get('/profile/{slug}', [PublicProfileController::class, 'show'])->name('profile.show');

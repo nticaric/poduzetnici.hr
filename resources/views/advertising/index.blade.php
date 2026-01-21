@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">Oglasni prostor - Oglašavanje za poduzetnike</x-slot>
+    <x-slot name="description">Predstavite svoj brend pred 20.000+ hrvatskih poduzetnika. Dosegnite B2B publiku koja donosi poslovne odluke. Zatražite ponudu za oglašavanje.</x-slot>
+    <x-slot name="keywords">oglašavanje, B2B marketing, poslovno oglašavanje, oglasni prostor, poduzetnici hrvatska</x-slot>
+
     <!-- Hero Section -->
     <div class="relative bg-dark-900 overflow-hidden">
         <!-- Decoration: Non-distorted Grid -->

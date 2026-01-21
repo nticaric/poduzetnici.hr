@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">KPD Preglednik</x-slot>
+    <x-slot name="description">Preglednik kodova platnog prometa za Hrvatsku. Pronađite ispravne pozive na broj i kodove namjene za uplatnice i naloge.</x-slot>
+    <x-slot name="keywords">KPD preglednik, kodovi platnog prometa, poziv na broj, HR model, šifra namjene</x-slot>
+
     <!-- Hero Section -->
     <div class="relative bg-dark-900 overflow-hidden">
         <div class="absolute inset-0 opacity-10">

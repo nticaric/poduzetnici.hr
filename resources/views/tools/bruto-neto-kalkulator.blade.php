@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">Bruto neto kalkulator</x-slot>
+    <x-slot name="description">Besplatni bruto neto kalkulator za Hrvatsku 2024. Izračunajte plaću, doprinose, porez i prirez. Ažurirano prema najnovijim poreznim propisima.</x-slot>
+    <x-slot name="keywords">bruto neto kalkulator, izračun plaće, neto plaća, porez na dohodak, doprinosi, kalkulator plaće Hrvatska</x-slot>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

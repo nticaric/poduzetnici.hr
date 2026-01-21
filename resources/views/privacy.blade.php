@@ -1,4 +1,7 @@
 <x-guest-layout>
+    <x-slot name="title">Pravila privatnosti</x-slot>
+    <x-slot name="description">Saznajte kako Poduzetnici.hr prikuplja, koristi i štiti vaše osobne podatke. GDPR usklađena politika privatnosti.</x-slot>
+
     <div class="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-2xl">
             <div class="text-center mb-6">

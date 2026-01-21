@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">{{ $user->company_name ?? $user->firstname . ' ' . $user->lastname }}</x-slot>
+    <x-slot name="description">{{ Str::limit($user->description ?? 'Profil korisnika na Poduzetnici.hr platformi', 160) }}</x-slot>
+    <x-slot name="keywords">{{ $user->industry ?? 'poduzetnik' }}, profil, {{ $user->address ?? 'hrvatska' }}</x-slot>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ $user->company_name ?? $user->firstname . ' ' . $user->lastname }}

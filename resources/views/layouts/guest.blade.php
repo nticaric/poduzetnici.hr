@@ -5,7 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <!-- SEO Meta Tags -->
+        <title>{{ isset($title) ? $title . ' | ' . config('app.name', 'Poduzetnici.hr') : config('app.name', 'Poduzetnici.hr') }}</title>
+        <meta name="description" content="{{ $description ?? 'Poduzetnici.hr - Vaša mreža za poslovni uspjeh u Hrvatskoj.' }}">
+        <meta name="robots" content="{{ $robots ?? 'index, follow' }}">
+        <link rel="canonical" href="{{ $canonical ?? url()->current() }}">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">

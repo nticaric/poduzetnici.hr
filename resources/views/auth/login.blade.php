@@ -1,4 +1,7 @@
 <x-guest-layout>
+    <x-slot name="title">Prijava</x-slot>
+    <x-slot name="description">Prijavite se na Poduzetnici.hr platformu i pristupite svom računu, oglasima i porukama.</x-slot>
+
     <div class="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
             <div class="text-center mb-6">

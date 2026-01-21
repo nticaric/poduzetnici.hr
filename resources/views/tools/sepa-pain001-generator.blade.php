@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">SEPA pain.001 Generator</x-slot>
+    <x-slot name="description">Besplatni SEPA pain.001 XML generator za bankovne naloge. Kreirajte ISO 20022 kompatibilne datoteke za grupna plaćanja u eurima.</x-slot>
+    <x-slot name="keywords">SEPA generator, pain.001, XML plaćanje, ISO 20022, grupna plaćanja, SEPA transfer</x-slot>
+
     <!-- Hero Section -->
     <div class="relative bg-dark-900 overflow-hidden">
         <div class="absolute inset-0 opacity-5">

@@ -1,4 +1,21 @@
 <x-app-layout>
+    <x-slot name="title">Kreditni kalkulator</x-slot>
+    <x-slot name="description">Besplatni kreditni kalkulator - izračunajte mjesečnu ratu, ukupne kamate i plan otplate kredita. Jednostavan alat za simulaciju kredita bez registracije.</x-slot>
+    <x-slot name="keywords">kreditni kalkulator, izračun kredita, mjesečna rata, kamatna stopa, plan otplate, simulacija kredita</x-slot>
+    <x-slot name="structuredData">@json([
+        '@context' => 'https://schema.org',
+        '@type' => 'WebApplication',
+        'name' => 'Kreditni kalkulator',
+        'url' => route('tools.kreditni-kalkulator'),
+        'applicationCategory' => 'FinanceApplication',
+        'operatingSystem' => 'Web',
+        'offers' => [
+            '@type' => 'Offer',
+            'price' => '0',
+            'priceCurrency' => 'EUR'
+        ]
+    ])</x-slot>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">Predaj novi oglas</x-slot>
+    <x-slot name="description">Objavite svoj poslovni oglas besplatno. Ponudite ili potražite usluge, partnere i poslovne prilike na Poduzetnici.hr platformi.</x-slot>
+    <x-slot name="robots">noindex, nofollow</x-slot>
+
     <div class="py-12 bg-gray-50">
         <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-2xl sm:rounded-3xl border border-gray-100">

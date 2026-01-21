@@ -2,6 +2,10 @@
 $latestAds = \App\Models\Ad::active()->latest()->with('user')->take(6)->get();
 ?>
 <x-app-layout>
+    <x-slot name="title">Vaša mreža za poslovni uspjeh u Hrvatskoj</x-slot>
+    <x-slot name="description">Povežite se s tisućama hrvatskih poduzetnika. Pronađite partnere, klijente i resurse na jednom mjestu. Besplatni alati za poduzetnike.</x-slot>
+    <x-slot name="keywords">poduzetnici, hrvatska, poslovanje, poslovni oglasi, partnerstva, alati za poduzetnike, B2B</x-slot>
+
     <!-- Hero Section with Dark Gradient -->
     <div class="relative bg-dark-900 overflow-hidden">
         <div class="absolute inset-0">

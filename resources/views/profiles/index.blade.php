@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="title">Baza poduzetnika</x-slot>
+    <x-slot name="description">Pronađite poslovne partnere, stručnjake i tvrtke iz raznih industrija u Hrvatskoj. Pretraživanje po djelatnosti, lokaciji i vrsti korisnika.</x-slot>
+    <x-slot name="keywords">baza poduzetnika, poslovni imenik, tvrtke hrvatska, poduzetnici hrvatska, poslovni partneri</x-slot>
+
     <div class="bg-gray-100 min-h-screen">
         <!-- Hero Header -->
         <div class="bg-primary-600 text-white">
