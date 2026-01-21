@@ -109,6 +109,7 @@
             <div class="flex flex-col gap-3 text-sm text-gray-400 sm:flex-row sm:items-center sm:justify-between">
                 <span>&copy; {{ date('Y') }} <a href="{{ route('home') }}" class="font-bold font-display text-white hover:text-primary-400 transition-colors">Poduzetnici<span class="text-primary-500">.hr</span></a> — Sva prava pridržana.</span>
                 <span>From Croatia with ❤️</span>
+                <span>v{{ $appVersion }}</span>
             </div>
         </div>
     </footer>

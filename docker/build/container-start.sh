@@ -3,7 +3,9 @@
 # Navigate to the Laravel application directory
 cd /app
 
-
+# Run database migrations
+echo "Running database migrations..."
+php artisan migrate --force
 
 # Clear and optimize Laravel cache
 echo "Clearing and optimizing Laravel cache..."
