@@ -99,4 +99,19 @@ Route::middleware('auth')->group(function () {
     Route::post('/profile/generate-slug', [ProfileController::class, 'generateSlug'])->name('profile.generate-slug');
 });
 
+// Admin Routes
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+
+    // Users Management
+    Route::resource('users', \App\Http\Controllers\Admin\UserController::class)->except(['create', 'store']);
+
+    // Ads Management
+    Route::get('ads', [\App\Http\Controllers\Admin\AdController::class, 'index'])->name('ads.index');
+    Route::get('ads/{ad}', [\App\Http\Controllers\Admin\AdController::class, 'show'])->name('ads.show');
+    Route::post('ads/{ad}/approve', [\App\Http\Controllers\Admin\AdController::class, 'approve'])->name('ads.approve');
+    Route::post('ads/{ad}/reject', [\App\Http\Controllers\Admin\AdController::class, 'reject'])->name('ads.reject');
+    Route::delete('ads/{ad}', [\App\Http\Controllers\Admin\AdController::class, 'destroy'])->name('ads.destroy');
+});
+
 require __DIR__ . '/auth.php';
