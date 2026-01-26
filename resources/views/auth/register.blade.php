@@ -58,6 +58,26 @@
 
                     <!-- Company Name (Conditional) -->
                     <div x-show="accountType === 'company'" style="display: none;" class="space-y-6">
+                        <!-- Company Type -->
+                        <div x-data="{ companyType: 'company' }">
+                            <x-input-label :value="__('Vrsta subjekta')" class="mb-2" />
+                            <div class="grid grid-cols-2 gap-4">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="company_type" value="company" class="sr-only" x-model="companyType">
+                                    <div class="text-center py-2 px-3 rounded-lg text-sm font-medium border transition-all" :class="companyType === 'company' ? 'bg-primary-50 border-primary-200 text-primary-700' : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300'">
+                                        Tvrtka
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="company_type" value="craft" class="sr-only" x-model="companyType">
+                                    <div class="text-center py-2 px-3 rounded-lg text-sm font-medium border transition-all" :class="companyType === 'craft' ? 'bg-primary-50 border-primary-200 text-primary-700' : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300'">
+                                        Obrt
+                                    </div>
+                                </label>
+                            </div>
+                            <x-input-error :messages="$errors->get('company_type')" class="mt-2" />
+                        </div>
+
                         <div>
                             <x-input-label for="company_name" :value="__('Naziv tvrtke / obrta')" />
                             <div class="mt-1">

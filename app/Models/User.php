@@ -25,6 +25,7 @@ class User extends Authenticatable
         'role',
         'account_type',
         'company_name',
+        'company_type',
         'industry',
         'oib',
         'phone',

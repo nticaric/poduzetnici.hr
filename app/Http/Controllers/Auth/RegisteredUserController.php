@@ -35,6 +35,7 @@ class RegisteredUserController extends Controller
             'password'     => ['required', 'confirmed', Rules\Password::defaults()],
             'account_type' => ['required', 'in:person,company'],
             'company_name' => ['nullable', 'string', 'max:255', 'required_if:account_type,company'],
+            'company_type' => ['nullable', 'string', 'in:company,craft', 'required_if:account_type,company'],
             'oib'          => ['nullable', 'string', 'size:11', 'required_if:account_type,company'],
         ]);
 
@@ -45,6 +46,7 @@ class RegisteredUserController extends Controller
             'password'     => Hash::make($request->password),
             'account_type' => $request->account_type,
             'company_name' => $request->company_name,
+            'company_type' => $request->company_type,
             'oib'          => $request->oib,
         ]);
 
