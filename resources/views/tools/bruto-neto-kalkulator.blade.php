@@ -289,18 +289,52 @@
         /* Slider */
         .slider-wrapper {
             position: relative;
-            padding: 0.5rem 0;
+            padding-top: 12px;
+            padding-bottom: 24px;
             margin-top: 0.75rem;
+            isolation: isolate;
+        }
+
+        /* Background Track */
+        .slider-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: var(--bg-input);
+            border-radius: 4px;
+            z-index: 0;
         }
 
         .slider {
             -webkit-appearance: none;
             appearance: none;
+            display: block;
             width: 100%;
             height: 8px;
-            background: var(--bg-input);
+            background: transparent;
             border-radius: 4px;
             outline: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .slider::-moz-range-track {
+            width: 100%;
+            height: 8px;
+            background: transparent;
             cursor: pointer;
         }
 
@@ -314,6 +348,7 @@
             cursor: grab;
             box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
             transition: transform 0.15s, box-shadow 0.15s;
+            margin-top: -8px;
         }
 
         .slider::-webkit-slider-thumb:hover {
@@ -338,13 +373,13 @@
 
         .slider-track {
             position: absolute;
-            top: 50%;
+            top: 12px;
             left: 0;
             height: 8px;
             background: linear-gradient(90deg, var(--accent-dark), var(--accent));
             border-radius: 4px;
-            transform: translateY(-50%);
             pointer-events: none;
+            z-index: 1;
         }
 
         .slider-labels {

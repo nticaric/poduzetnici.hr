@@ -4,33 +4,45 @@
     <x-slot name="keywords">baza poduzetnika, poslovni imenik, tvrtke hrvatska, poduzetnici hrvatska, poslovni partneri</x-slot>
 
     <div class="bg-gray-100 min-h-screen">
-        <!-- Hero Header -->
-        <div class="bg-primary-600 text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <h1 class="text-3xl font-bold mb-2">Baza Poduzetnika</h1>
-                <p class="text-primary-100">Pronađite poslovne partnere, stručnjake i tvrtke iz raznih industrija</p>
+        <!-- Hero Section -->
+        <div class="relative bg-dark-900 overflow-hidden">
+            <!-- Abstract Background -->
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100"></div>
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="relative z-10 max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 pt-16 pb-24 sm:pt-24 sm:pb-32 text-center">
+                <h1 class="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 font-display leading-tight">
+                    Baza <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-blue-500">Poduzetnika</span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
+                    Pronađite poslovne partnere, stručnjake i tvrtke iz raznih industrija u Hrvatskoj.
+                </p>
+
+                <!-- Search Bar -->
+                <div class="max-w-3xl mx-auto">
+                    <form method="GET" action="{{ route('profiles.index') }}" class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-primary-600 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+                        <div class="relative flex items-center bg-white rounded-xl shadow-2xl p-2">
+                            <div class="flex-1 flex items-center px-4">
+                                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                                <input type="text" name="search" value="{{ request('search') }}" placeholder="Naziv tvrtke, ime ili ključna riječ..." class="w-full px-4 py-3 text-lg border-0 focus:ring-0 focus:outline-none text-dark-900 placeholder-gray-500 bg-transparent">
+                            </div>
+                            <button type="submit" class="bg-dark-900 hover:bg-dark-800 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                                Traži
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
-        <!-- Search Bar -->
-        <div class="bg-amber-400">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                <form method="GET" action="{{ route('profiles.index') }}" class="flex gap-2">
-                    <div class="flex-1 relative">
-                        <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                        <input type="text" name="search" value="{{ request('search') }}" placeholder="Naziv tvrtke, ime ili ključna riječ..." class="w-full pl-10 pr-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-primary-500 text-gray-900">
-                    </div>
-                    <button type="submit" class="bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
-                        Traži
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div class="flex flex-col lg:flex-row gap-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col lg:flex-row gap-8">
 
                 <!-- Left Sidebar - Filters -->
                 <aside class="lg:w-72 flex-shrink-0">
