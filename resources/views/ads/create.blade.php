@@ -45,11 +45,13 @@
                                 <x-input-error :messages="$errors->get('type')" class="mt-2" />
                             </div>
 
-                            <!-- Category -->
+                        <!-- Category -->
+                        <div x-data="{ selectedCategory: '' }">
                             <div>
                                 <x-input-label for="category" :value="__('Kategorija')" class="text-lg font-semibold text-gray-700" />
                                 <div class="relative mt-2">
-                                    <select id="category" name="category" class="block w-full p-4 border-gray-200 focus:border-primary-500 focus:ring-primary-500 rounded-xl shadow-sm bg-gray-50 appearance-none">
+                                    <select id="category" name="category" x-model="selectedCategory" class="block w-full p-4 border-gray-200 focus:border-primary-500 focus:ring-primary-500 rounded-xl shadow-sm bg-gray-50 appearance-none">
+                                        <option value="" disabled selected>Odaberite kategoriju</option>
                                         <option value="Prodaja poslovanja">Prodaja poslovanja</option>
                                         <option value="Partnerstva">Partnerstva</option>
                                         <option value="Oprema i alati">Oprema i alati</option>
@@ -66,12 +68,59 @@
                                 <x-input-error :messages="$errors->get('category')" class="mt-2" />
                             </div>
 
-                            <!-- Location -->
-                            <div>
-                                <x-input-label for="location" :value="__('Lokacija')" class="text-lg font-semibold text-gray-700" />
-                                <x-text-input id="location" class="block mt-2 w-full p-4 border-gray-200 focus:border-primary-500 focus:ring-primary-500 rounded-xl shadow-sm bg-gray-50" type="text" name="location" :value="old('location')" placeholder="npr. Zagreb, Split..." required />
-                                <x-input-error :messages="$errors->get('location')" class="mt-2" />
+                            <!-- Business Sale Specific Fields -->
+                            <div x-show="selectedCategory === 'Prodaja poslovanja'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-2" x-transition:enter-end="opacity-100 transform translate-y-0"
+                                x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-2" class="mt-6 p-6 bg-blue-50 rounded-2xl border border-blue-100 grid grid-cols-1 md:grid-cols-2 gap-6" style="display: none;">
+                                <div class="col-span-full">
+                                    <h3 class="text-lg font-bold text-blue-800 flex items-center gap-2">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        Detalji o poslovanju
+                                    </h3>
+                                    <p class="text-sm text-blue-600 mt-1">Popunite detalje kako bi kupci imali bolji uvid u vrijednost vašeg poslovanja.</p>
+                                </div>
+
+                                <div>
+                                    <x-input-label for="annual_revenue" :value="__('Godišnji prihod (€)')" />
+                                    <x-text-input id="annual_revenue" class="block mt-1 w-full" type="number" step="0.01" name="annual_revenue" :value="old('annual_revenue')" placeholder="npr. 150000.00" />
+                                </div>
+
+                                <div>
+                                    <x-input-label for="net_profit" :value="__('Neto dobit (€)')" />
+                                    <x-text-input id="net_profit" class="block mt-1 w-full" type="number" step="0.01" name="net_profit" :value="old('net_profit')" placeholder="npr. 45000.00" />
+                                </div>
+
+                                <div>
+                                    <x-input-label for="established_year" :value="__('Godina osnutka')" />
+                                    <x-text-input id="established_year" class="block mt-1 w-full" type="number" name="established_year" :value="old('established_year')" placeholder="npr. 2015" min="1900" max="{{ date('Y') + 1 }}" />
+                                </div>
+
+                                <div>
+                                    <x-input-label for="employee_count" :value="__('Broj zaposlenih')" />
+                                    <x-text-input id="employee_count" class="block mt-1 w-full" type="number" name="employee_count" :value="old('employee_count')" placeholder="0" min="0" />
+                                </div>
+                                
+                                <div>
+                                    <x-input-label for="website" :value="__('Web stranica (opcionalno)')" />
+                                    <x-text-input id="website" class="block mt-1 w-full" type="url" name="website" :value="old('website')" placeholder="https://www.primjer.hr" />
+                                </div>
+
+                                <div class="flex items-center">
+                                    <label class="inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" name="includes_real_estate" value="1" {{ old('includes_real_estate') ? 'checked' : '' }} class="rounded border-gray-300 text-primary-600 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50">
+                                        <span class="ml-2 text-sm text-gray-700 font-medium">Uključuje nekretnine u vlasništvu</span>
+                                    </label>
+                                </div>
                             </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div>
+                            <x-input-label for="location" :value="__('Lokacija')" class="text-lg font-semibold text-gray-700" />
+                            <x-text-input id="location" class="block mt-2 w-full p-4 border-gray-200 focus:border-primary-500 focus:ring-primary-500 rounded-xl shadow-sm bg-gray-50" type="text" name="location" :value="old('location')" placeholder="npr. Zagreb, Split..." required />
+                            <x-input-error :messages="$errors->get('location')" class="mt-2" />
+                        </div>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">

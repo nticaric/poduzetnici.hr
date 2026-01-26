@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Ad;
@@ -9,7 +10,7 @@ class SitemapController extends Controller
 {
     public function index(): Response
     {
-        $ads      = Ad::active()->latest()->get();
+        $ads = Ad::active()->latest()->get();
         $profiles = User::where('is_public', true)->whereNotNull('slug')->get();
 
         $content = view('sitemap', compact('ads', 'profiles'))->render();

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use App\Enums\AdStatus;
@@ -29,14 +30,23 @@ class Ad extends Model
         'rejection_reason',
         'reviewed_at',
         'reviewed_by',
+        'annual_revenue',
+        'net_profit',
+        'established_year',
+        'employee_count',
+        'includes_real_estate',
+        'website',
     ];
 
     protected $casts = [
-        'expires_at'  => 'datetime',
+        'expires_at' => 'datetime',
         'reviewed_at' => 'datetime',
-        'price'       => 'decimal:2',
-        'images'      => 'array',
-        'status'      => AdStatus::class,
+        'price' => 'decimal:2',
+        'annual_revenue' => 'decimal:2',
+        'net_profit' => 'decimal:2',
+        'includes_real_estate' => 'boolean',
+        'images' => 'array',
+        'status' => AdStatus::class,
     ];
 
     public function user(): BelongsTo
@@ -103,20 +113,20 @@ class Ad extends Model
     public function approve(User $reviewer): void
     {
         $this->update([
-            'status'           => AdStatus::Approved,
+            'status' => AdStatus::Approved,
             'rejection_reason' => null,
-            'reviewed_at'      => now(),
-            'reviewed_by'      => $reviewer->id,
+            'reviewed_at' => now(),
+            'reviewed_by' => $reviewer->id,
         ]);
     }
 
     public function reject(User $reviewer, string $reason): void
     {
         $this->update([
-            'status'           => AdStatus::Rejected,
+            'status' => AdStatus::Rejected,
             'rejection_reason' => $reason,
-            'reviewed_at'      => now(),
-            'reviewed_by'      => $reviewer->id,
+            'reviewed_at' => now(),
+            'reviewed_by' => $reviewer->id,
         ]);
     }
 }

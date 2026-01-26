@@ -56,7 +56,24 @@
                                 <span class="text-xs text-gray-400">{{ $ad->created_at->diffForHumans() }}</span>
                             </div>
                             <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 group-hover:text-primary-600 transition-colors">{{ $ad->title }}</h5>
-                            <p class="text-sm text-gray-600 line-clamp-2 mb-4">{{ Str::limit($ad->description, 100) }}</p>
+                            
+                            @if($ad->category === 'Prodaja poslovanja' && ($ad->annual_revenue || $ad->net_profit))
+                            <div class="mb-3 flex flex-wrap gap-2 text-xs">
+                                @if($ad->annual_revenue)
+                                <span class="px-2 py-0.5 rounded bg-green-50 text-green-700 font-medium border border-green-100">
+                                    Prihod: €{{ number_format($ad->annual_revenue, 0, ',', '.') }}
+                                </span>
+                                @endif
+                                @if($ad->net_profit)
+                                <span class="px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-medium border border-blue-100">
+                                    Dobit: €{{ number_format($ad->net_profit, 0, ',', '.') }}
+                                </span>
+                                @endif
+                            </div>
+                            @else
+                                <p class="text-sm text-gray-600 line-clamp-2 mb-4">{{ Str::limit($ad->description, 100) }}</p>
+                            @endif
+
                             <div class="flex justify-between items-center pt-4 border-t border-gray-100">
                                 <span class="font-bold text-lg text-gray-900">{{ $ad->price ? '€' . number_format($ad->price, 2) : 'Na upit' }}</span>
                                 @if ($ad->location)

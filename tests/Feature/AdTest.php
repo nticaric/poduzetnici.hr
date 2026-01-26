@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use App\Models\Ad;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -43,7 +43,7 @@ class AdTest extends TestCase
             'user_id' => $user->id,
             'duration_days' => 30,
         ]);
-        
+
         $ad = Ad::where('title', 'Test Ad')->first();
         $this->assertNotNull($ad->slug);
         $this->assertNotNull($ad->expires_at);

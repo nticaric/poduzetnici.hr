@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Enums\AdStatus;
@@ -26,35 +27,48 @@ class AdController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title'             => 'required|string|max:255',
-            'description'       => 'required|string',
-            'type'              => 'required|in:offer,demand',
-            'category'          => 'required|string|in:Prodaja poslovanja,Partnerstva,Oprema i alati,Usluge,Oglasni prostor,Pitanja i odgovori',
-            'location'          => 'required|string|max:255',
-            'price'             => 'nullable|numeric|min:0',
-            'duration_days'     => 'required|integer|in:7,14,30',
-            'is_anonymous'      => 'nullable|boolean',
-            'uploaded_images'   => 'nullable|array|max:5',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'type' => 'required|in:offer,demand',
+            'category' => 'required|string|in:Prodaja poslovanja,Partnerstva,Oprema i alati,Usluge,Oglasni prostor,Pitanja i odgovori',
+            'location' => 'required|string|max:255',
+            'price' => 'nullable|numeric|min:0',
+            'duration_days' => 'required|integer|in:7,14,30',
+            'is_anonymous' => 'nullable|boolean',
+            'uploaded_images' => 'nullable|array|max:5',
             'uploaded_images.*' => 'url',
+            // Business Sale fields
+            'annual_revenue' => 'nullable|numeric|min:0|required_if:category,Prodaja poslovanja',
+            'net_profit' => 'nullable|numeric|required_if:category,Prodaja poslovanja',
+            'established_year' => 'nullable|integer|min:1900|max:'.(date('Y') + 1),
+            'employee_count' => 'nullable|integer|min:0',
+            'includes_real_estate' => 'nullable|boolean',
+            'website' => 'nullable|url',
         ]);
 
-        $slug = Str::slug($validated['title']) . '-' . uniqid();
+        $slug = Str::slug($validated['title']).'-'.uniqid();
 
         $images = $request->input('uploaded_images', []);
 
         $ad = $request->user()->ads()->create([
-            'title'         => $validated['title'],
-            'slug'          => $slug,
-            'description'   => $validated['description'],
-            'images'        => $images,
-            'type'          => $validated['type'],
-            'category'      => $validated['category'],
-            'location'      => $validated['location'],
-            'price'         => $validated['price'] ?? null,
+            'title' => $validated['title'],
+            'slug' => $slug,
+            'description' => $validated['description'],
+            'images' => $images,
+            'type' => $validated['type'],
+            'category' => $validated['category'],
+            'location' => $validated['location'],
+            'price' => $validated['price'] ?? null,
             'duration_days' => $validated['duration_days'],
-            'expires_at'    => now()->addDays((int) $validated['duration_days']),
-            'is_anonymous'  => $request->boolean('is_anonymous'),
-            'status'        => AdStatus::Pending,
+            'expires_at' => now()->addDays((int) $validated['duration_days']),
+            'is_anonymous' => $request->boolean('is_anonymous'),
+            'status' => AdStatus::Pending,
+            'annual_revenue' => $validated['category'] === 'Prodaja poslovanja' ? ($validated['annual_revenue'] ?? null) : null,
+            'net_profit' => $validated['category'] === 'Prodaja poslovanja' ? ($validated['net_profit'] ?? null) : null,
+            'established_year' => $validated['category'] === 'Prodaja poslovanja' ? ($validated['established_year'] ?? null) : null,
+            'employee_count' => $validated['category'] === 'Prodaja poslovanja' ? ($validated['employee_count'] ?? null) : null,
+            'includes_real_estate' => $request->boolean('includes_real_estate'),
+            'website' => $validated['category'] === 'Prodaja poslovanja' ? ($validated['website'] ?? null) : null,
         ]);
 
         // Notify all admins about the new ad
@@ -75,14 +89,14 @@ class AdController extends Controller
         }
 
         // Only show approved ads to non-owners and non-admins
-        if (!$ad->isApproved()) {
-            if (!auth()->check() || (auth()->id() !== $ad->user_id && !auth()->user()->isAdmin())) {
+        if (! $ad->isApproved()) {
+            if (! auth()->check() || (auth()->id() !== $ad->user_id && ! auth()->user()->isAdmin())) {
                 abort(404);
             }
         }
 
         // Increment view count (don't count owner's views)
-        if (!auth()->check() || auth()->id() !== $ad->user_id) {
+        if (! auth()->check() || auth()->id() !== $ad->user_id) {
             $ad->incrementViews();
         }
 
@@ -109,15 +123,15 @@ class AdController extends Controller
         }
 
         $validated = $request->validate([
-            'title'             => 'required|string|max:255',
-            'description'       => 'required|string',
-            'type'              => 'required|in:offer,demand',
-            'category'          => 'required|string|in:Prodaja poslovanja,Partnerstva,Oprema i alati,Usluge,Oglasni prostor,Pitanja i odgovori',
-            'price'             => 'nullable|numeric|min:0',
-            'is_anonymous'      => 'nullable|boolean',
-            'uploaded_images'   => 'nullable|array|max:5',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'type' => 'required|in:offer,demand',
+            'category' => 'required|string|in:Prodaja poslovanja,Partnerstva,Oprema i alati,Usluge,Oglasni prostor,Pitanja i odgovori',
+            'price' => 'nullable|numeric|min:0',
+            'is_anonymous' => 'nullable|boolean',
+            'uploaded_images' => 'nullable|array|max:5',
             'uploaded_images.*' => 'url',
-            'existing_images'   => 'nullable|array',
+            'existing_images' => 'nullable|array',
         ]);
 
         $images = array_merge(
@@ -129,14 +143,14 @@ class AdController extends Controller
         $newStatus = $ad->isRejected() ? AdStatus::Pending : $ad->status;
 
         $ad->update([
-            'title'        => $validated['title'],
-            'description'  => $validated['description'],
-            'type'         => $validated['type'],
-            'category'     => $validated['category'],
-            'price'        => $validated['price'],
+            'title' => $validated['title'],
+            'description' => $validated['description'],
+            'type' => $validated['type'],
+            'category' => $validated['category'],
+            'price' => $validated['price'],
             'is_anonymous' => $request->boolean('is_anonymous'),
-            'images'       => array_slice($images, 0, 5),
-            'status'       => $newStatus,
+            'images' => array_slice($images, 0, 5),
+            'status' => $newStatus,
         ]);
 
         // If ad was re-submitted for review, notify admins

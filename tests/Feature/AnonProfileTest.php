@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use App\Models\Ad;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -57,7 +57,7 @@ class AnonProfileTest extends TestCase
         $ad = Ad::create([
             'user_id' => $user->id,
             'title' => 'Anon Ad Show',
-            'slug' => 'anon-ad-show-' . uniqid(),
+            'slug' => 'anon-ad-show-'.uniqid(),
             'description' => 'Desc',
             'type' => 'offer',
             'category' => 'Usluge',
@@ -66,7 +66,7 @@ class AnonProfileTest extends TestCase
             'is_anonymous' => true,
         ]);
 
-        $response = $this->get('/ads/' . $ad->id);
+        $response = $this->get('/ads/'.$ad->id);
         $response->assertStatus(200);
         $response->assertSee('Anonimni oglašivač');
         $response->assertDontSee($user->firstname);

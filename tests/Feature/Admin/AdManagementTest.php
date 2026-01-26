@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Feature\Admin;
 
 use App\Enums\AdStatus;
@@ -37,7 +38,7 @@ class AdManagementTest extends TestCase
     public function test_admin_can_view_ad_details(): void
     {
         $admin = User::factory()->admin()->create();
-        $ad    = Ad::factory()->create();
+        $ad = Ad::factory()->create();
 
         $response = $this->actingAs($admin)->get("/admin/ads/{$ad->id}");
 
@@ -50,14 +51,14 @@ class AdManagementTest extends TestCase
         Notification::fake();
 
         $admin = User::factory()->admin()->create();
-        $ad    = Ad::factory()->pending()->create();
+        $ad = Ad::factory()->pending()->create();
 
         $response = $this->actingAs($admin)->post("/admin/ads/{$ad->id}/approve");
 
         $response->assertRedirect();
         $this->assertDatabaseHas('ads', [
-            'id'          => $ad->id,
-            'status'      => AdStatus::Approved->value,
+            'id' => $ad->id,
+            'status' => AdStatus::Approved->value,
             'reviewed_by' => $admin->id,
         ]);
 
@@ -69,7 +70,7 @@ class AdManagementTest extends TestCase
         Notification::fake();
 
         $admin = User::factory()->admin()->create();
-        $ad    = Ad::factory()->pending()->create();
+        $ad = Ad::factory()->pending()->create();
 
         $response = $this->actingAs($admin)->post("/admin/ads/{$ad->id}/reject", [
             'rejection_reason' => 'Sadržaj nije prikladan.',
@@ -77,10 +78,10 @@ class AdManagementTest extends TestCase
 
         $response->assertRedirect();
         $this->assertDatabaseHas('ads', [
-            'id'               => $ad->id,
-            'status'           => AdStatus::Rejected->value,
+            'id' => $ad->id,
+            'status' => AdStatus::Rejected->value,
             'rejection_reason' => 'Sadržaj nije prikladan.',
-            'reviewed_by'      => $admin->id,
+            'reviewed_by' => $admin->id,
         ]);
 
         Notification::assertSentTo($ad->user, AdStatusChangedNotification::class);
@@ -89,7 +90,7 @@ class AdManagementTest extends TestCase
     public function test_admin_can_delete_ad(): void
     {
         $admin = User::factory()->admin()->create();
-        $ad    = Ad::factory()->create();
+        $ad = Ad::factory()->create();
 
         $response = $this->actingAs($admin)->delete("/admin/ads/{$ad->id}");
 
@@ -113,14 +114,14 @@ class AdManagementTest extends TestCase
         Notification::fake();
 
         $admin = User::factory()->admin()->create();
-        $user  = User::factory()->create();
+        $user = User::factory()->create();
 
         $response = $this->actingAs($user)->post('/ads', [
-            'title'         => 'Test Oglas',
-            'description'   => 'Ovo je test opis oglasa.',
-            'type'          => 'offer',
-            'category'      => 'Partnerstva',
-            'location'      => 'Zagreb',
+            'title' => 'Test Oglas',
+            'description' => 'Ovo je test opis oglasa.',
+            'type' => 'offer',
+            'category' => 'Partnerstva',
+            'location' => 'Zagreb',
             'duration_days' => 30,
         ]);
 
@@ -133,19 +134,19 @@ class AdManagementTest extends TestCase
         Notification::fake();
 
         $admin = User::factory()->admin()->create();
-        $user  = User::factory()->create();
+        $user = User::factory()->create();
 
         $this->actingAs($user)->post('/ads', [
-            'title'         => 'Test Oglas',
-            'description'   => 'Ovo je test opis oglasa.',
-            'type'          => 'offer',
-            'category'      => 'Partnerstva',
-            'location'      => 'Zagreb',
+            'title' => 'Test Oglas',
+            'description' => 'Ovo je test opis oglasa.',
+            'type' => 'offer',
+            'category' => 'Partnerstva',
+            'location' => 'Zagreb',
             'duration_days' => 30,
         ]);
 
         $this->assertDatabaseHas('ads', [
-            'title'  => 'Test Oglas',
+            'title' => 'Test Oglas',
             'status' => AdStatus::Pending->value,
         ]);
     }
@@ -153,7 +154,7 @@ class AdManagementTest extends TestCase
     public function test_only_approved_ads_shown_in_public_list(): void
     {
         $approvedAd = Ad::factory()->approved()->create(['title' => 'Approved Ad']);
-        $pendingAd  = Ad::factory()->pending()->create(['title' => 'Pending Ad']);
+        $pendingAd = Ad::factory()->pending()->create(['title' => 'Pending Ad']);
 
         $response = $this->get('/ads');
 
@@ -182,7 +183,7 @@ class AdManagementTest extends TestCase
     public function test_pending_ad_visible_to_admin(): void
     {
         $admin = User::factory()->admin()->create();
-        $ad    = Ad::factory()->pending()->create();
+        $ad = Ad::factory()->pending()->create();
 
         $response = $this->actingAs($admin)->get("/ads/{$ad->id}");
 
@@ -194,19 +195,19 @@ class AdManagementTest extends TestCase
         Notification::fake();
 
         $admin = User::factory()->admin()->create();
-        $ad    = Ad::factory()->rejected()->create();
+        $ad = Ad::factory()->rejected()->create();
 
         $response = $this->actingAs($ad->user)->patch("/ads/{$ad->id}", [
-            'title'       => 'Updated Title',
+            'title' => 'Updated Title',
             'description' => $ad->description,
-            'type'        => $ad->type,
-            'category'    => $ad->category,
-            'price'       => $ad->price,
+            'type' => $ad->type,
+            'category' => $ad->category,
+            'price' => $ad->price,
         ]);
 
         $response->assertRedirect();
         $this->assertDatabaseHas('ads', [
-            'id'     => $ad->id,
+            'id' => $ad->id,
             'status' => AdStatus::Pending->value,
         ]);
     }

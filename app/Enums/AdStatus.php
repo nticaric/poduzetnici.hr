@@ -1,15 +1,17 @@
 <?php
+
 namespace App\Enums;
 
-enum AdStatus: string {
-    case Pending  = 'pending';
+enum AdStatus: string
+{
+    case Pending = 'pending';
     case Approved = 'approved';
     case Rejected = 'rejected';
 
     public function label(): string
     {
         return match ($this) {
-            self::Pending  => 'Na čekanju',
+            self::Pending => 'Na čekanju',
             self::Approved => 'Odobren',
             self::Rejected => 'Odbijen',
         };
@@ -18,7 +20,7 @@ enum AdStatus: string {
     public function color(): string
     {
         return match ($this) {
-            self::Pending  => 'yellow',
+            self::Pending => 'yellow',
             self::Approved => 'green',
             self::Rejected => 'red',
         };
@@ -30,7 +32,7 @@ enum AdStatus: string {
     public static function options(): array
     {
         return collect(self::cases())->mapWithKeys(
-            fn(self $status) => [$status->value => $status->label()]
+            fn (self $status) => [$status->value => $status->label()]
         )->all();
     }
 }

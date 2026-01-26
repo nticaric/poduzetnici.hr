@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Factories;
 
 use App\Enums\AdStatus;
@@ -18,19 +19,19 @@ class AdFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id'       => User::factory(),
-            'title'         => $this->faker->sentence(),
-            'slug'          => $this->faker->slug(),
-            'description'   => $this->faker->paragraph(),
-            'type'          => $this->faker->randomElement(['offer', 'demand']),
-            'category'      => $this->faker->randomElement(['Prodaja poslovanja', 'Partnerstva', 'Oprema i alati']),
-            'location'      => $this->faker->city(),
-            'price'         => $this->faker->randomFloat(2, 100, 10000),
+            'user_id' => User::factory(),
+            'title' => $this->faker->sentence(),
+            'slug' => $this->faker->slug(),
+            'description' => $this->faker->paragraph(),
+            'type' => $this->faker->randomElement(['offer', 'demand']),
+            'category' => $this->faker->randomElement(['Prodaja poslovanja', 'Partnerstva', 'Oprema i alati']),
+            'location' => $this->faker->city(),
+            'price' => $this->faker->randomFloat(2, 100, 10000),
             'duration_days' => 30,
-            'expires_at'    => now()->addDays(30),
-            'is_anonymous'  => false,
-            'views_count'   => 0,
-            'status'        => AdStatus::Pending,
+            'expires_at' => now()->addDays(30),
+            'is_anonymous' => false,
+            'views_count' => 0,
+            'status' => AdStatus::Pending,
         ];
     }
 
@@ -39,7 +40,7 @@ class AdFactory extends Factory
      */
     public function approved(): static
     {
-        return $this->state(fn(array $attributes) => [
+        return $this->state(fn (array $attributes) => [
             'status' => AdStatus::Approved,
         ]);
     }
@@ -49,8 +50,8 @@ class AdFactory extends Factory
      */
     public function rejected(): static
     {
-        return $this->state(fn(array $attributes) => [
-            'status'           => AdStatus::Rejected,
+        return $this->state(fn (array $attributes) => [
+            'status' => AdStatus::Rejected,
             'rejection_reason' => $this->faker->sentence(),
         ]);
     }
@@ -60,7 +61,7 @@ class AdFactory extends Factory
      */
     public function pending(): static
     {
-        return $this->state(fn(array $attributes) => [
+        return $this->state(fn (array $attributes) => [
             'status' => AdStatus::Pending,
         ]);
     }

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -81,7 +82,7 @@ class PublicProfileController extends Controller
      */
     public function show($slug): View
     {
-        $user      = User::where('slug', $slug)->firstOrFail();
+        $user = User::where('slug', $slug)->firstOrFail();
         $activeAds = $user->ads()->active()->latest()->get();
 
         return view('profile.show', compact('user', 'activeAds'));

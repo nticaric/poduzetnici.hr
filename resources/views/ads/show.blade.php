@@ -57,9 +57,69 @@
                         </div>
                     @endif
 
-                    <div class="prose prose-lg max-w-none mb-8 prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:marker:text-primary-500">
-                        {!! Str::markdown($ad->description) !!}
-                    </div>
+                        <div class="prose prose-lg max-w-none mb-8 prose-headings:text-gray-900 prose-p:text-gray-700 prose-strong:text-gray-900 prose-ul:text-gray-700 prose-ol:text-gray-700 prose-li:marker:text-primary-500">
+                            {!! Str::markdown($ad->description) !!}
+                        </div>
+
+                        {{-- Business Sale Details --}}
+                        @if($ad->category === 'Prodaja poslovanja')
+                            <div class="mb-8 p-6 bg-blue-50/50 rounded-2xl border border-blue-100">
+                                <h3 class="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                                    Detalji o poslovanju
+                                </h3>
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                                    @if($ad->annual_revenue)
+                                        <div class="space-y-1">
+                                            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Godišnji prihod</span>
+                                            <div class="text-xl font-bold text-gray-900">€{{ number_format($ad->annual_revenue, 0, ',', '.') }}</div>
+                                        </div>
+                                    @endif
+
+                                    @if($ad->net_profit)
+                                        <div class="space-y-1">
+                                            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Neto dobit</span>
+                                            <div class="text-xl font-bold text-green-600">€{{ number_format($ad->net_profit, 0, ',', '.') }}</div>
+                                        </div>
+                                    @endif
+
+                                    @if($ad->established_year)
+                                        <div class="space-y-1">
+                                            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Godina osnutka</span>
+                                            <div class="text-lg font-medium text-gray-900">{{ $ad->established_year }}.</div>
+                                        </div>
+                                    @endif
+
+                                    @if($ad->employee_count !== null)
+                                        <div class="space-y-1">
+                                            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Broj zaposlenih</span>
+                                            <div class="text-lg font-medium text-gray-900">{{ $ad->employee_count }}</div>
+                                        </div>
+                                    @endif
+
+                                    @if($ad->includes_real_estate)
+                                        <div class="space-y-1">
+                                            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Nekretnine</span>
+                                            <div class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                                Uključene u cijenu
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($ad->website && ($ad->user_id === auth()->id() || auth()->user()?->role === 'admin' || !$ad->is_anonymous))
+                                        <div class="space-y-1">
+                                            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Web stranica</span>
+                                            <div>
+                                                <a href="{{ $ad->website }}" target="_blank" class="text-primary-600 hover:underline flex items-center gap-1">
+                                                    Posjeti web
+                                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        @endif
 
                     <div class="border-t border-gray-200 pt-6 mt-6">
                         @if ($ad->is_anonymous)

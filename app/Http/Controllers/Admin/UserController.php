@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Enums\UserRole;
@@ -41,7 +42,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         $user->loadCount('ads');
-        $user->load(['ads' => fn($q) => $q->latest()->take(10)]);
+        $user->load(['ads' => fn ($q) => $q->latest()->take(10)]);
 
         return view('admin.users.show', compact('user'));
     }
@@ -62,14 +63,14 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $validated = $request->validate([
-            'firstname'    => 'required|string|max:255',
-            'lastname'     => 'required|string|max:255',
-            'email'        => 'required|email|unique:users,email,' . $user->id,
-            'role'         => 'required|in:' . implode(',', array_keys(UserRole::options())),
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,'.$user->id,
+            'role' => 'required|in:'.implode(',', array_keys(UserRole::options())),
             'account_type' => 'required|in:person,company',
             'company_name' => 'nullable|string|max:255',
-            'oib'          => 'nullable|string|max:11',
-            'phone'        => 'nullable|string|max:20',
+            'oib' => 'nullable|string|max:11',
+            'phone' => 'nullable|string|max:20',
         ]);
 
         $user->update($validated);

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
 
 use App\Enums\AdStatus;
@@ -37,7 +38,7 @@ class AdController extends Controller
             $query->where('category', $request->input('category'));
         }
 
-        $ads      = $query->latest()->paginate(20)->withQueryString();
+        $ads = $query->latest()->paginate(20)->withQueryString();
         $statuses = AdStatus::options();
 
         return view('admin.ads.index', compact('ads', 'statuses'));

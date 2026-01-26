@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Middleware;
 
 use Closure;
@@ -14,7 +15,7 @@ class EnsureUserIsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!$request->user() || !$request->user()->isAdmin()) {
+        if (! $request->user() || ! $request->user()->isAdmin()) {
             abort(403, 'Nemate ovlaštenje za pristup ovoj stranici.');
         }
 

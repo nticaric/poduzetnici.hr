@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Feature;
 
 use App\Models\Ad;
@@ -33,8 +34,8 @@ class SitemapTest extends TestCase
     public function test_sitemap_contains_active_ads(): void
     {
         $user = User::factory()->create();
-        $ad   = Ad::factory()->create([
-            'user_id'    => $user->id,
+        $ad = Ad::factory()->create([
+            'user_id' => $user->id,
             'expires_at' => now()->addDays(30),
         ]);
 
@@ -48,7 +49,7 @@ class SitemapTest extends TestCase
     {
         $user = User::factory()->create([
             'is_public' => true,
-            'slug'      => 'test-company',
+            'slug' => 'test-company',
         ]);
 
         $response = $this->get('/sitemap.xml');
@@ -61,7 +62,7 @@ class SitemapTest extends TestCase
     {
         $user = User::factory()->create([
             'is_public' => false,
-            'slug'      => 'private-company',
+            'slug' => 'private-company',
         ]);
 
         $response = $this->get('/sitemap.xml');

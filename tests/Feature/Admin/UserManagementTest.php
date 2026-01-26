@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Feature\Admin;
 
 use App\Enums\UserRole;
@@ -48,7 +49,7 @@ class UserManagementTest extends TestCase
     public function test_admin_can_view_user_details(): void
     {
         $admin = User::factory()->admin()->create();
-        $user  = User::factory()->create();
+        $user = User::factory()->create();
 
         $response = $this->actingAs($admin)->get("/admin/users/{$user->id}");
 
@@ -59,7 +60,7 @@ class UserManagementTest extends TestCase
     public function test_admin_can_edit_user(): void
     {
         $admin = User::factory()->admin()->create();
-        $user  = User::factory()->create();
+        $user = User::factory()->create();
 
         $response = $this->actingAs($admin)->get("/admin/users/{$user->id}/edit");
 
@@ -69,40 +70,40 @@ class UserManagementTest extends TestCase
     public function test_admin_can_update_user(): void
     {
         $admin = User::factory()->admin()->create();
-        $user  = User::factory()->create();
+        $user = User::factory()->create();
 
         $response = $this->actingAs($admin)->patch("/admin/users/{$user->id}", [
-            'firstname'    => 'Updated',
-            'lastname'     => 'Name',
-            'email'        => $user->email,
-            'role'         => UserRole::User->value,
+            'firstname' => 'Updated',
+            'lastname' => 'Name',
+            'email' => $user->email,
+            'role' => UserRole::User->value,
             'account_type' => 'person',
         ]);
 
         $response->assertRedirect('/admin/users');
         $this->assertDatabaseHas('users', [
-            'id'        => $user->id,
+            'id' => $user->id,
             'firstname' => 'Updated',
-            'lastname'  => 'Name',
+            'lastname' => 'Name',
         ]);
     }
 
     public function test_admin_can_change_user_role(): void
     {
         $admin = User::factory()->admin()->create();
-        $user  = User::factory()->create(['role' => UserRole::User]);
+        $user = User::factory()->create(['role' => UserRole::User]);
 
         $response = $this->actingAs($admin)->patch("/admin/users/{$user->id}", [
-            'firstname'    => $user->firstname,
-            'lastname'     => $user->lastname,
-            'email'        => $user->email,
-            'role'         => UserRole::Admin->value,
+            'firstname' => $user->firstname,
+            'lastname' => $user->lastname,
+            'email' => $user->email,
+            'role' => UserRole::Admin->value,
             'account_type' => 'person',
         ]);
 
         $response->assertRedirect('/admin/users');
         $this->assertDatabaseHas('users', [
-            'id'   => $user->id,
+            'id' => $user->id,
             'role' => UserRole::Admin->value,
         ]);
     }
@@ -110,7 +111,7 @@ class UserManagementTest extends TestCase
     public function test_admin_can_delete_user(): void
     {
         $admin = User::factory()->admin()->create();
-        $user  = User::factory()->create();
+        $user = User::factory()->create();
 
         $response = $this->actingAs($admin)->delete("/admin/users/{$user->id}");
 
@@ -142,7 +143,7 @@ class UserManagementTest extends TestCase
     public function test_admin_can_search_users(): void
     {
         $admin = User::factory()->admin()->create();
-        $user  = User::factory()->create(['firstname' => 'UniqueTestName']);
+        $user = User::factory()->create(['firstname' => 'UniqueTestName']);
 
         $response = $this->actingAs($admin)->get('/admin/users?search=UniqueTestName');
 

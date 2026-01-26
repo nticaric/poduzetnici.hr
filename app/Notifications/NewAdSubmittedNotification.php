@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Notifications;
 
 use App\Models\Ad;
@@ -14,9 +15,7 @@ class NewAdSubmittedNotification extends Notification implements ShouldQueue
     /**
      * Create a new notification instance.
      */
-    public function __construct(public Ad $ad)
-    {
-    }
+    public function __construct(public Ad $ad) {}
 
     /**
      * Get the notification's delivery channels.
@@ -34,13 +33,13 @@ class NewAdSubmittedNotification extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Novi oglas čeka odobrenje: ' . $this->ad->title)
+            ->subject('Novi oglas čeka odobrenje: '.$this->ad->title)
             ->greeting('Pozdrav!')
-            ->line('Korisnik ' . $this->ad->user->firstname . ' ' . $this->ad->user->lastname . ' je objavio novi oglas.')
-            ->line('**Naslov:** ' . $this->ad->title)
-            ->line('**Kategorija:** ' . $this->ad->category)
-            ->line('**Tip:** ' . ($this->ad->type === 'offer' ? 'Ponuda' : 'Potražnja'))
-            ->action('Pregledaj oglas', url('/admin/ads/' . $this->ad->id))
+            ->line('Korisnik '.$this->ad->user->firstname.' '.$this->ad->user->lastname.' je objavio novi oglas.')
+            ->line('**Naslov:** '.$this->ad->title)
+            ->line('**Kategorija:** '.$this->ad->category)
+            ->line('**Tip:** '.($this->ad->type === 'offer' ? 'Ponuda' : 'Potražnja'))
+            ->action('Pregledaj oglas', url('/admin/ads/'.$this->ad->id))
             ->line('Molimo pregledajte oglas i odobrite ili odbijte objavu.');
     }
 
@@ -52,11 +51,11 @@ class NewAdSubmittedNotification extends Notification implements ShouldQueue
     public function toArray(object $notifiable): array
     {
         return [
-            'ad_id'   => $this->ad->id,
-            'title'   => $this->ad->title,
+            'ad_id' => $this->ad->id,
+            'title' => $this->ad->title,
             'user_id' => $this->ad->user_id,
-            'message' => 'Novi oglas čeka odobrenje: ' . $this->ad->title,
-            'type'    => 'new_ad_submitted',
+            'message' => 'Novi oglas čeka odobrenje: '.$this->ad->title,
+            'type' => 'new_ad_submitted',
         ];
     }
 }
