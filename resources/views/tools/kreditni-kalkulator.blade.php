@@ -545,6 +545,51 @@
             color: #a5b4fc;
         }
 
+        /* Share Button */
+        .share-btn {
+            background: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 0.625rem 1rem;
+            color: var(--text-secondary);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .share-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+            background: var(--accent-glow);
+        }
+
+        .share-btn.copied {
+            border-color: var(--success);
+            color: var(--success);
+            background: rgba(34, 197, 94, 0.1);
+        }
+
+        .share-btn svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .results-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
         /* Full Width Stat */
         .stat-item.full {
             grid-column: 1 / -1;
@@ -876,6 +921,14 @@
                             <span id="monthly-value">621,92</span>
                             <span class="monthly-payment-suffix">EUR</span>
                         </p>
+                        <div class="results-header-row">
+                            <button type="button" class="share-btn" id="share-btn" onclick="copyShareLink()">
+                                <svg id="share-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                </svg>
+                                <span id="share-text">Podijeli link</span>
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Visual Breakdown -->
@@ -990,6 +1043,110 @@
             return parseFloat(str.replace(/\./g, '').replace(',', '.')) || 0;
         }
 
+        // Update URL with current parameters
+        function updateURL() {
+            const params = new URLSearchParams();
+            params.set('iznos', amountSlider.value);
+            params.set('kamata', rateSlider.value);
+            params.set('rok', termSlider.value);
+            params.set('jedinica', termUnit === 'years' ? 'godine' : 'mjeseci');
+
+            const newURL = window.location.pathname + '?' + params.toString();
+            history.replaceState(null, '', newURL);
+        }
+
+        // Load parameters from URL
+        function loadFromURL() {
+            const params = new URLSearchParams(window.location.search);
+
+            // Load term unit first (affects slider limits)
+            if (params.has('jedinica')) {
+                const unit = params.get('jedinica');
+                if (unit === 'mjeseci') {
+                    termUnit = 'months';
+                    document.querySelectorAll('.term-toggle-btn').forEach(b => b.classList.remove('active'));
+                    document.querySelector('.term-toggle-btn[data-unit="months"]').classList.add('active');
+                    termSlider.max = 360;
+                    termSuffix.textContent = 'mj.';
+                    termMinLabel.textContent = '1 mj.';
+                    termMaxLabel.textContent = '360 mj.';
+                }
+            }
+
+            // Load amount
+            if (params.has('iznos')) {
+                const amount = parseFloat(params.get('iznos'));
+                if (amount >= 1000 && amount <= 1000000) {
+                    amountSlider.value = amount;
+                    amountInput.value = formatNumber(amount);
+                }
+            }
+
+            // Load rate
+            if (params.has('kamata')) {
+                const rate = parseFloat(params.get('kamata'));
+                if (rate >= 0.1 && rate <= 15) {
+                    rateSlider.value = rate;
+                    rateInput.value = formatNumber(rate, 1);
+                }
+            }
+
+            // Load term
+            if (params.has('rok')) {
+                const max = termUnit === 'years' ? 30 : 360;
+                const term = parseFloat(params.get('rok'));
+                if (term >= 1 && term <= max) {
+                    termSlider.value = term;
+                    termInput.value = formatNumber(term);
+                }
+            }
+        }
+
+        // Copy share link to clipboard
+        function copyShareLink() {
+            const shareBtn = document.getElementById('share-btn');
+            const shareText = document.getElementById('share-text');
+            const shareIcon = document.getElementById('share-icon');
+            const url = window.location.href;
+
+            // Try modern clipboard API first, fallback to execCommand
+            const copyToClipboard = (text) => {
+                if (navigator.clipboard && window.isSecureContext) {
+                    return navigator.clipboard.writeText(text);
+                } else {
+                    // Fallback for non-secure contexts
+                    const textArea = document.createElement('textarea');
+                    textArea.value = text;
+                    textArea.style.position = 'fixed';
+                    textArea.style.left = '-999999px';
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        return Promise.resolve();
+                    } catch (err) {
+                        return Promise.reject(err);
+                    } finally {
+                        textArea.remove();
+                    }
+                }
+            };
+
+            copyToClipboard(url).then(() => {
+                // Show success state
+                shareBtn.classList.add('copied');
+                shareText.textContent = 'Link kopiran!';
+                shareIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />';
+
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    shareBtn.classList.remove('copied');
+                    shareText.textContent = 'Podijeli link';
+                    shareIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />';
+                }, 2000);
+            });
+        }
+
         // Update slider track
         function updateTrack(slider, track) {
             const min = parseFloat(slider.min);
@@ -1038,6 +1195,9 @@
 
             // Update amortization table
             updateAmortization(principal, monthlyRate, monthlyPayment, termMonths);
+
+            // Update URL with current parameters
+            updateURL();
         }
 
         // Update amortization table
@@ -1199,6 +1359,9 @@
 
         // Initialize
         function init() {
+            // Load parameters from URL if present
+            loadFromURL();
+
             updateTrack(amountSlider, amountTrack);
             updateTrack(rateSlider, rateTrack);
             updateTrack(termSlider, termTrack);
