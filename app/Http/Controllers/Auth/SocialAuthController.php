@@ -26,6 +26,8 @@ class SocialAuthController extends Controller
         $user = User::where('email', $socialUser->getEmail())->first();
 
         // Account Merge Logic
+        $isNewUser = false;
+
         if ($user) {
             // Update social ID if missing
             $socialIdColumn = $driver.'_id';
@@ -52,9 +54,16 @@ class SocialAuthController extends Controller
                 'avatar' => $socialUser->getAvatar(),
                 'email_verified_at' => now(),
             ]);
+
+            $isNewUser = true;
         }
 
         Auth::login($user);
+
+        // Redirect new users to onboarding
+        if ($isNewUser) {
+            return redirect()->route('onboarding');
+        }
 
         return redirect()->intended(route('dashboard'));
     }

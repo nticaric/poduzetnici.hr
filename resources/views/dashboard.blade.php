@@ -308,6 +308,18 @@
                                     </svg>
                                 </a>
 
+                                <a href="{{ route('companies.index') }}" class="flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:border-amber-100 hover:bg-amber-50/30 transition-all group shadow-sm hover:shadow-md">
+                                    <span class="p-2.5 bg-amber-600 rounded-lg text-white shadow-lg shadow-amber-500/30 group-hover:scale-110 transition-transform">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="font-semibold text-gray-900">Moje tvrtke</span>
+                                    <svg class="w-5 h-5 ml-auto text-gray-300 group-hover:text-amber-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+
                                 <a href="{{ route('tools.index') }}" class="flex items-center gap-3 p-3 rounded-xl border border-gray-100 hover:border-purple-100 hover:bg-purple-50/30 transition-all group shadow-sm hover:shadow-md">
                                     <span class="p-2.5 bg-purple-600 rounded-lg text-white shadow-lg shadow-purple-500/30 group-hover:scale-110 transition-transform">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

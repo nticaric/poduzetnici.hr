@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdController;
 use App\Http\Controllers\AdvertisingController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CompanyMemberController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicProfileController;
@@ -90,6 +92,11 @@ Route::get('/facebook/data-deletion', function () {
 })->name('facebook.data-deletion');
 
 Route::middleware('auth')->group(function () {
+    // Onboarding for new social login users
+    Route::get('/onboarding', function () {
+        return view('auth.onboarding');
+    })->name('onboarding');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -97,6 +104,21 @@ Route::middleware('auth')->group(function () {
     Route::post('/profile/check-slug', [ProfileController::class, 'checkSlug'])->name('profile.check-slug');
     Route::post('/profile/toggle-public', [ProfileController::class, 'togglePublic'])->name('profile.toggle-public');
     Route::post('/profile/generate-slug', [ProfileController::class, 'generateSlug'])->name('profile.generate-slug');
+
+    // Company Management
+    Route::resource('companies', CompanyController::class);
+    Route::post('/companies/{company}/switch', [CompanyController::class, 'switchTo'])->name('companies.switch');
+    Route::get('/companies/{company}/members', [CompanyController::class, 'members'])->name('companies.members');
+    Route::post('/companies/check-slug', [CompanyController::class, 'checkSlug'])->name('companies.check-slug');
+    Route::post('/companies/generate-slug', [CompanyController::class, 'generateSlug'])->name('companies.generate-slug');
+    Route::post('/companies/toggle-public', [CompanyController::class, 'togglePublic'])->name('companies.toggle-public');
+
+    // Company Member Management
+    Route::post('/companies/{company}/members', [CompanyMemberController::class, 'store'])->name('companies.members.store');
+    Route::patch('/companies/{company}/members/{user}', [CompanyMemberController::class, 'update'])->name('companies.members.update');
+    Route::delete('/companies/{company}/members/{user}', [CompanyMemberController::class, 'destroy'])->name('companies.members.destroy');
+    Route::post('/companies/{company}/leave', [CompanyMemberController::class, 'leave'])->name('companies.leave');
+    Route::post('/companies/{company}/transfer-ownership', [CompanyMemberController::class, 'transferOwnership'])->name('companies.transfer-ownership');
 });
 
 // Admin Routes

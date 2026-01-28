@@ -3,8 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\CompanyRole;
 use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -39,6 +42,7 @@ class User extends Authenticatable
         'description',
         'address',
         'web',
+        'current_company_id',
     ];
 
     /**
@@ -94,5 +98,48 @@ class User extends Authenticatable
     public function unreadMessagesCount(): int
     {
         return $this->receivedMessages()->unread()->count();
+    }
+
+    public function companies(): BelongsToMany
+    {
+        return $this->belongsToMany(Company::class)
+            ->withPivot('role')
+            ->withTimestamps();
+    }
+
+    public function currentCompany(): BelongsTo
+    {
+        return $this->belongsTo(Company::class, 'current_company_id');
+    }
+
+    public function ownedCompanies(): BelongsToMany
+    {
+        return $this->companies()
+            ->wherePivot('role', CompanyRole::Owner->value);
+    }
+
+    public function setCurrentCompany(?Company $company): void
+    {
+        if ($company && ! $this->companies()->where('company_id', $company->id)->exists()) {
+            return;
+        }
+
+        $this->update(['current_company_id' => $company?->id]);
+    }
+
+    public function hasCompany(Company $company): bool
+    {
+        return $this->companies()->where('company_id', $company->id)->exists();
+    }
+
+    public function companyRole(Company $company): ?CompanyRole
+    {
+        $pivot = $this->companies()->where('company_id', $company->id)->first()?->pivot;
+
+        if (! $pivot) {
+            return null;
+        }
+
+        return CompanyRole::tryFrom($pivot->role);
     }
 }

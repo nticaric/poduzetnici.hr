@@ -30,7 +30,7 @@
                                 <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                                 </svg>
-                                <input type="text" name="search" value="{{ request('search') }}" placeholder="Naziv tvrtke, ime ili ključna riječ..." class="w-full px-4 py-3 text-lg border-0 focus:ring-0 focus:outline-none text-dark-900 placeholder-gray-500 bg-transparent">
+                                <input type="text" name="search" value="{{ request('search') }}" placeholder="Naziv tvrtke, djelatnost ili ključna riječ..." class="w-full px-4 py-3 text-lg border-0 focus:ring-0 focus:outline-none text-dark-900 placeholder-gray-500 bg-transparent">
                             </div>
                             <button type="submit" class="bg-dark-900 hover:bg-dark-800 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                                 Traži
@@ -75,25 +75,25 @@
                             </div>
                         </div>
 
-                        <!-- Account Type Filter -->
+                        <!-- Company Type Filter -->
                         <div class="bg-white rounded-xl border border-gray-200 shadow-sm mb-4" x-data="{ open: true }">
                             <button type="button" @click="open = !open" class="w-full flex items-center justify-between p-4 text-left">
-                                <span class="font-semibold text-gray-900">Vrsta računa</span>
+                                <span class="font-semibold text-gray-900">Vrsta</span>
                                 <svg class="w-5 h-5 text-gray-500 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </button>
                             <div x-show="open" x-collapse class="px-4 pb-4 space-y-2">
-                                <label class="flex items-center gap-3 py-2 px-3 cursor-pointer hover:bg-gray-50 rounded-lg border border-transparent hover:border-gray-200 transition-colors {{ request('account_type') == 'company' ? 'bg-primary-50 border-primary-100' : '' }}">
-                                    <input type="radio" name="account_type" value="company" {{ request('account_type') == 'company' ? 'checked' : '' }} class="w-4 h-4 text-primary-600 border-gray-300 focus:ring-primary-500" onchange="this.form.submit()">
-                                    <span class="text-sm {{ request('account_type') == 'company' ? 'text-primary-900 font-medium' : 'text-gray-700' }}">Tvrtka / Obrt</span>
+                                <label class="flex items-center gap-3 py-2 px-3 cursor-pointer hover:bg-gray-50 rounded-lg border border-transparent hover:border-gray-200 transition-colors {{ request('type') == 'company' ? 'bg-primary-50 border-primary-100' : '' }}">
+                                    <input type="radio" name="type" value="company" {{ request('type') == 'company' ? 'checked' : '' }} class="w-4 h-4 text-primary-600 border-gray-300 focus:ring-primary-500" onchange="this.form.submit()">
+                                    <span class="text-sm {{ request('type') == 'company' ? 'text-primary-900 font-medium' : 'text-gray-700' }}">Tvrtka (d.o.o., j.d.o.o.)</span>
                                 </label>
-                                <label class="flex items-center gap-3 py-2 px-3 cursor-pointer hover:bg-gray-50 rounded-lg border border-transparent hover:border-gray-200 transition-colors {{ request('account_type') == 'individual' ? 'bg-primary-50 border-primary-100' : '' }}">
-                                    <input type="radio" name="account_type" value="individual" {{ request('account_type') == 'individual' ? 'checked' : '' }} class="w-4 h-4 text-primary-600 border-gray-300 focus:ring-primary-500" onchange="this.form.submit()">
-                                    <span class="text-sm {{ request('account_type') == 'individual' ? 'text-primary-900 font-medium' : 'text-gray-700' }}">Fizička osoba</span>
+                                <label class="flex items-center gap-3 py-2 px-3 cursor-pointer hover:bg-gray-50 rounded-lg border border-transparent hover:border-gray-200 transition-colors {{ request('type') == 'craft' ? 'bg-primary-50 border-primary-100' : '' }}">
+                                    <input type="radio" name="type" value="craft" {{ request('type') == 'craft' ? 'checked' : '' }} class="w-4 h-4 text-primary-600 border-gray-300 focus:ring-primary-500" onchange="this.form.submit()">
+                                    <span class="text-sm {{ request('type') == 'craft' ? 'text-primary-900 font-medium' : 'text-gray-700' }}">Obrt</span>
                                 </label>
-                                @if (request('account_type'))
-                                    <button type="button" onclick="document.querySelector('input[name=account_type]:checked').checked = false; this.closest('form').submit();" class="text-sm text-primary-600 hover:text-primary-700 font-medium mt-2">
+                                @if (request('type'))
+                                    <button type="button" onclick="document.querySelector('input[name=type]:checked').checked = false; this.closest('form').submit();" class="text-sm text-primary-600 hover:text-primary-700 font-medium mt-2">
                                         Poništi odabir
                                     </button>
                                 @endif
@@ -125,7 +125,7 @@
                 <!-- Right Content - Results -->
                 <main class="flex-1 min-w-0">
                     <!-- Active Filters Banner -->
-                    @if (request()->anyFilled(['search', 'industry', 'account_type', 'has_website', 'has_phone']))
+                    @if (request()->anyFilled(['search', 'industry', 'type', 'has_website', 'has_phone']))
                         <div class="mb-6 flex flex-wrap items-center gap-2 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
                             <span class="text-xs font-semibold uppercase tracking-wider text-gray-400 mr-2">Aktivni filteri:</span>
 
@@ -151,10 +151,10 @@
                                 </span>
                             @endif
 
-                            @if (request('account_type'))
+                            @if (request('type'))
                                 <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-sm font-medium border border-blue-100">
-                                    {{ request('account_type') == 'company' ? 'Tvrtka / Obrt' : 'Fizička osoba' }}
-                                    <a href="{{ request()->fullUrlWithQuery(['account_type' => null]) }}" class="text-blue-400 hover:text-blue-600 transition-colors ml-1">
+                                    {{ request('type') == 'company' ? 'Tvrtka' : 'Obrt' }}
+                                    <a href="{{ request()->fullUrlWithQuery(['type' => null]) }}" class="text-blue-400 hover:text-blue-600 transition-colors ml-1">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                                         </svg>
@@ -193,125 +193,114 @@
                     @endif
 
                     <!-- Results Header -->
-                    <div class="flex items-center justify-between mb-4">
-                        <p class="text-gray-700">
-                            @if (request('search') || request('industry') || request('account_type') || request('has_website') || request('has_phone'))
-                                Pronađeno <span class="font-bold">{{ $users->total() }}</span> poduzetnika
-                            @else
-                                <span class="font-bold">{{ $users->total() }}</span> poduzetnika u bazi
-                            @endif
-                        </p>
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-1 h-6 bg-gradient-to-b from-primary-500 to-primary-600 rounded-full"></div>
+                            <p class="text-gray-600 text-sm">
+                                @if (request('search') || request('industry') || request('type') || request('has_website') || request('has_phone'))
+                                    Pronađeno <span class="font-semibold text-gray-900">{{ $companies->total() }}</span> {{ $companies->total() == 1 ? 'tvrtka' : 'tvrtki' }}
+                                @else
+                                    <span class="font-semibold text-gray-900">{{ $companies->total() }}</span> {{ $companies->total() == 1 ? 'tvrtka' : 'tvrtki' }} u bazi
+                                @endif
+                            </p>
+                        </div>
                         <div class="flex items-center gap-2">
-                            <span class="text-sm text-gray-500">Sortiraj:</span>
-                            <select class="text-sm border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500" onchange="window.location.href = this.value">
-                                <option value="{{ request()->fullUrlWithQuery(['sort' => 'newest']) }}" {{ request('sort', 'newest') === 'newest' ? 'selected' : '' }}>Najnoviji</option>
-                                <option value="{{ request()->fullUrlWithQuery(['sort' => 'name']) }}" {{ request('sort') === 'name' ? 'selected' : '' }}>Ime A-Z</option>
+                            <select class="text-sm border-0 bg-white rounded-lg focus:ring-2 focus:ring-primary-500 pl-3 pr-8 py-2 text-gray-600 font-medium cursor-pointer shadow-sm" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);" onchange="window.location.href = this.value">
+                                <option value="{{ request()->fullUrlWithQuery(['sort' => 'newest']) }}" {{ request('sort', 'newest') === 'newest' ? 'selected' : '' }}>Najnovije</option>
+                                <option value="{{ request()->fullUrlWithQuery(['sort' => 'name']) }}" {{ request('sort') === 'name' ? 'selected' : '' }}>Naziv A-Z</option>
                             </select>
                         </div>
                     </div>
 
                     <!-- Results Grid -->
-                    @if ($users->count() > 0)
-                        <div class="grid grid-cols-1 gap-4">
-                            @foreach ($users as $user)
-                                <a href="{{ route('profile.show', $user->slug) }}" class="group relative bg-white rounded-2xl border border-gray-100 hover:border-primary-100 shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300 overflow-hidden">
-                                    <div class="p-6 sm:flex sm:items-start sm:gap-6">
-                                        <!-- Avatar Section -->
-                                        <div class="shrink-0 mb-4 sm:mb-0">
-                                            <div class="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto sm:mx-0">
-                                                <div class="absolute inset-0 bg-gradient-to-br from-primary-50 to-white rounded-2xl transform rotate-3 transition-transform group-hover:rotate-6"></div>
-                                                <div class="absolute inset-0 bg-white rounded-2xl shadow-sm border border-gray-100 flex items-center justify-center overflow-hidden transform transition-transform group-hover:-translate-y-1">
-                                                    @if ($user->avatar)
-                                                        <img src="{{ Str::startsWith($user->avatar, 'http') ? $user->avatar : asset('storage/' . $user->avatar) }}" alt="{{ $user->company_name ?: $user->firstname }}" class="w-full h-full object-cover">
-                                                    @else
-                                                        <span class="text-3xl font-bold bg-gradient-to-br from-primary-400 to-primary-600 bg-clip-text text-transparent select-none">
-                                                            {{ strtoupper(substr($user->company_name ?: $user->firstname, 0, 1)) }}
-                                                        </span>
-                                                    @endif
+                    @if ($companies->count() > 0)
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            @foreach ($companies as $company)
+                                <a href="{{ route('profile.show', $company->slug) }}"
+                                   class="group relative bg-white rounded-xl overflow-hidden transition-all duration-500 hover:-translate-y-1"
+                                   style="box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);">
+
+                                    <!-- Decorative top accent -->
+                                    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r {{ $company->type === 'craft' ? 'from-amber-400 via-orange-400 to-amber-500' : 'from-primary-400 via-primary-500 to-primary-400' }} transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+
+                                    <div class="p-5">
+                                        <!-- Header Row -->
+                                        <div class="flex items-center gap-4">
+                                            <!-- Avatar with badge -->
+                                            <div class="shrink-0 w-12 h-12 rounded-xl {{ $company->type === 'craft' ? 'bg-gradient-to-br from-amber-50 to-orange-100' : 'bg-gradient-to-br from-primary-50 to-primary-100' }} flex items-center justify-center overflow-hidden shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                                                @if ($company->avatar)
+                                                    <img src="{{ Str::startsWith($company->avatar, 'http') ? $company->avatar : asset('storage/' . $company->avatar) }}" alt="{{ $company->name }}" class="w-full h-full object-cover">
+                                                @else
+                                                    <span class="text-lg font-bold {{ $company->type === 'craft' ? 'text-amber-600' : 'text-primary-600' }} select-none">
+                                                        {{ strtoupper(substr($company->name, 0, 2)) }}
+                                                    </span>
+                                                @endif
+                                            </div>
+
+                                            <!-- Name, Type & Industry -->
+                                            <div class="flex-1 min-w-0">
+                                                <div class="flex items-center gap-2 mb-0.5">
+                                                    <h3 class="text-base font-semibold text-gray-900 group-hover:text-primary-600 transition-colors duration-200 truncate">
+                                                        {{ $company->name }}
+                                                    </h3>
+                                                    <span class="shrink-0 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide rounded {{ $company->type === 'craft' ? 'bg-amber-100 text-amber-700' : 'bg-primary-100 text-primary-700' }}">
+                                                        {{ $company->type === 'craft' ? 'Obrt' : 'd.o.o.' }}
+                                                    </span>
                                                 </div>
+                                                @if ($company->industry)
+                                                    <span class="text-xs text-gray-500">{{ $company->industry }}</span>
+                                                @endif
+                                            </div>
+
+                                            <!-- Arrow indicator -->
+                                            <div class="shrink-0 w-8 h-8 rounded-full bg-gray-50 group-hover:bg-primary-50 flex items-center justify-center transition-all duration-300 group-hover:translate-x-1">
+                                                <svg class="w-4 h-4 text-gray-400 group-hover:text-primary-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                                </svg>
                                             </div>
                                         </div>
 
-                                        <!-- Content Section -->
-                                        <div class="flex-1 text-center sm:text-left min-w-0">
-                                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
-                                                <div>
-                                                    <h3 class="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors duration-200 truncate pr-4">
-                                                        {{ $user->company_name ?: $user->firstname . ' ' . $user->lastname }}
-                                                    </h3>
-                                                    @if ($user->account_type === 'company')
-                                                        <div class="flex items-center justify-center sm:justify-start gap-2 mt-1">
-                                                            <span class="inline-flex items-center gap-1 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                                                                {{ $user->company_type === 'craft' ? 'Obrt' : 'Tvrtka' }}
-                                                            </span>
-                                                            @if ($user->industry)
-                                                                <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
-                                                                <span class="text-xs font-medium text-primary-600">{{ $user->industry }}</span>
-                                                            @endif
-                                                        </div>
-                                                    @endif
-                                                </div>
+                                        <!-- Description -->
+                                        @if ($company->description)
+                                            <p class="text-gray-500 text-sm leading-relaxed line-clamp-2 mt-3 pl-16">
+                                                {{ Str::limit($company->description, 100) }}
+                                            </p>
+                                        @endif
 
-                                                <!-- Action Button (Visible on Desktop) -->
-                                                <div class="hidden sm:block shrink-0 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
-                                                    <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary-50 text-primary-600">
-                                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                                        </svg>
-                                                    </span>
+                                        <!-- Meta info -->
+                                        <div class="flex items-center gap-4 mt-4 pt-3 border-t border-gray-100 pl-16">
+                                            @if ($company->address)
+                                                <div class="flex items-center text-xs text-gray-500">
+                                                    <svg class="w-3.5 h-3.5 mr-1.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                                    </svg>
+                                                    <span class="truncate max-w-[120px]">{{ $company->address }}</span>
                                                 </div>
-                                            </div>
-
-                                            @if ($user->description)
-                                                <p class="text-gray-600 text-sm leading-relaxed line-clamp-2 mb-4 max-w-2xl">
-                                                    {{ Str::limit($user->description, 200) }}
-                                                </p>
                                             @endif
 
-                                            <!-- Meta Tags & Location -->
-                                            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-y-2 gap-x-4 pt-4 border-t border-gray-50">
-                                                @if ($user->address)
-                                                    <div class="flex items-center text-sm text-gray-500">
-                                                        <svg class="w-4 h-4 mr-1.5 text-gray-400 group-hover:text-primary-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                                        </svg>
-                                                        {{ $user->address }}
-                                                    </div>
-                                                @endif
-
-                                                @if ($user->web)
-                                                    <div class="flex items-center text-sm text-gray-500">
-                                                        <svg class="w-4 h-4 mr-1.5 text-gray-400 group-hover:text-primary-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-                                                        </svg>
-                                                        Web stranica
-                                                    </div>
-                                                @endif
-
-                                                <div class="sm:ml-auto flex items-center gap-2">
-                                                    @if ($user->phone)
-                                                        <span class="inline-flex items-center px-2 py-1 bg-green-50 text-green-700 text-xs font-medium rounded-lg border border-green-100">
-                                                            <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                                                            </svg>
-                                                            Telefon
-                                                        </span>
-                                                    @endif
-                                                    <span class="text-xs text-gray-400 font-medium">
-                                                        Pridružen {{ $user->created_at->format('m/Y') }}
-                                                    </span>
+                                            @if ($company->web)
+                                                <div class="flex items-center text-xs text-gray-500">
+                                                    <svg class="w-3.5 h-3.5 mr-1.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                                                    </svg>
+                                                    Web
                                                 </div>
-                                            </div>
+                                            @endif
+
+                                            @if ($company->phone)
+                                                <div class="flex items-center text-xs text-green-600">
+                                                    <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                                    </svg>
+                                                    Kontakt
+                                                </div>
+                                            @endif
+
+                                            <span class="ml-auto text-[11px] text-gray-400 tabular-nums">
+                                                {{ $company->created_at->format('m/Y') }}
+                                            </span>
                                         </div>
-                                    </div>
-                                    <!-- Mobile Action Strip -->
-                                    <div class="sm:hidden bg-gray-50 border-t border-gray-100 py-3 px-4 flex items-center justify-between">
-                                        <span class="text-sm font-semibold text-primary-600">Pogledaj profil</span>
-                                        <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                        </svg>
                                     </div>
                                 </a>
                             @endforeach
@@ -319,19 +308,22 @@
 
                         <!-- Pagination -->
                         <div class="mt-8">
-                            {{ $users->withQueryString()->links() }}
+                            {{ $companies->withQueryString()->links() }}
                         </div>
                     @else
-                        <div class="bg-white rounded-xl border border-gray-200 p-12 text-center">
-                            <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        <div class="bg-white rounded-2xl p-12 text-center" style="box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);">
+                            <div class="w-20 h-20 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6 rotate-3">
+                                <svg class="w-10 h-10 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Nema pronađenih poduzetnika</h3>
-                            <p class="text-gray-500 mb-4">Pokušajte prilagoditi filtere ili pretragu.</p>
-                            <a href="{{ route('profiles.index') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 text-white font-semibold rounded-lg hover:bg-primary-700 transition-colors text-sm">
-                                Prikaži sve poduzetnike
+                            <h3 class="text-xl font-semibold text-gray-900 mb-2">Nema pronađenih tvrtki</h3>
+                            <p class="text-gray-500 mb-6 max-w-sm mx-auto">Pokušajte prilagoditi filtere ili unesite drugi pojam za pretragu.</p>
+                            <a href="{{ route('profiles.index') }}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-dark-900 text-white font-medium rounded-xl hover:bg-dark-800 transition-all duration-200 text-sm shadow-lg shadow-dark-900/10 hover:shadow-xl hover:shadow-dark-900/20 hover:-translate-y-0.5">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                                </svg>
+                                Prikaži sve tvrtke
                             </a>
                         </div>
                     @endif

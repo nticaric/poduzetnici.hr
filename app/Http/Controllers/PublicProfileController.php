@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Company;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class PublicProfileController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of public companies.
      */
     public function index(Request $request): View
     {
-        $query = User::whereNotNull('slug')
+        $query = Company::whereNotNull('slug')
             ->where('slug', '!=', '')
             ->where('is_public', true);
 
@@ -21,10 +21,9 @@ class PublicProfileController extends Controller
         if ($request->filled('search')) {
             $search = $request->input('search');
             $query->where(function ($q) use ($search) {
-                $q->where('company_name', 'like', "%{$search}%")
-                    ->orWhere('firstname', 'like', "%{$search}%")
-                    ->orWhere('lastname', 'like', "%{$search}%")
-                    ->orWhere('description', 'like', "%{$search}%");
+                $q->where('name', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%")
+                    ->orWhere('industry', 'like', "%{$search}%");
             });
         }
 
@@ -33,9 +32,9 @@ class PublicProfileController extends Controller
             $query->where('industry', $request->input('industry'));
         }
 
-        // Filter by Account Type
-        if ($request->filled('account_type')) {
-            $query->where('account_type', $request->input('account_type'));
+        // Filter by Type (company/craft)
+        if ($request->filled('type')) {
+            $query->where('type', $request->input('type'));
         }
 
         // Filter by has website
@@ -51,40 +50,47 @@ class PublicProfileController extends Controller
         // Sorting
         $sort = $request->input('sort', 'newest');
         if ($sort === 'name') {
-            $query->orderByRaw('COALESCE(company_name, CONCAT(firstname, " ", lastname)) ASC');
+            $query->orderBy('name', 'asc');
         } else {
             $query->latest();
         }
 
         // Get industries for filter dropdown
         $industries = [
-            'IT / Programiranje',
-            'Dizajn',
+            'IT usluge',
+            'Trgovina',
+            'Proizvodnja',
+            'Ugostiteljstvo',
+            'Građevinarstvo',
+            'Financije',
             'Marketing',
+            'Konzalting',
+            'Dizajn',
             'Računovodstvo',
             'Pravo',
-            'Građevina',
-            'Usluge čišćenja',
             'Edukacija',
             'Zdravlje i ljepota',
-            'Turizam i ugostiteljstvo',
+            'Turizam',
             'Prijevoz i logistika',
             'Ostalo',
         ];
 
-        $users = $query->paginate(12)->withQueryString();
+        $companies = $query->paginate(12)->withQueryString();
 
-        return view('profiles.index', compact('users', 'industries'));
+        return view('profiles.index', compact('companies', 'industries'));
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified company profile.
      */
-    public function show($slug): View
+    public function show(string $slug): View
     {
-        $user = User::where('slug', $slug)->firstOrFail();
-        $activeAds = $user->ads()->active()->latest()->get();
+        $company = Company::where('slug', $slug)
+            ->where('is_public', true)
+            ->firstOrFail();
 
-        return view('profile.show', compact('user', 'activeAds'));
+        $activeAds = $company->ads()->active()->latest()->get();
+
+        return view('profile.show', compact('company', 'activeAds'));
     }
 }
